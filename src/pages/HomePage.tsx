@@ -60,14 +60,14 @@ function Hero() {
               <WordReveal text={`Hi, I'm ${profile.name}.`} delay={0.1} />
             </span>
             <span className="mt-3 block text-[clamp(2.6rem,7.2vw,5.4rem)] leading-[1.02]">
-              <WordReveal text={profile.heroTitle} delay={0.35} highlight={titleWords.slice(-2)} />
+              <WordReveal text={profile.heroTitle} delay={0.2} highlight={titleWords.slice(-2)} />
             </span>
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 0.9 }}
+            transition={{ duration: 0.5, ease: EASE, delay: 0.4 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
             {profile.heroSubtitle}
@@ -76,7 +76,7 @@ function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 1.05 }}
+            transition={{ duration: 0.5, ease: EASE, delay: 0.5 }}
             className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <Magnetic className="flex w-full sm:inline-flex sm:w-auto">
@@ -123,7 +123,7 @@ function Hero() {
           style={{ y: termY }}
           initial={{ opacity: 0, scale: 0.94, rotateX: 8 }}
           animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{ duration: 1.1, ease: EASE, delay: 0.5 }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.25 }}
           className="relative mx-auto w-full max-w-md [perspective:1200px] lg:max-w-none"
         >
           <div aria-hidden className="absolute -inset-8 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgb(34_211_238/0.22),transparent_65%)] blur-2xl" />
@@ -139,7 +139,7 @@ function Hero() {
         aria-hidden
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
+        transition={{ delay: 1, duration: 0.6 }}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-subtle lg:flex"
       >
         SCROLL

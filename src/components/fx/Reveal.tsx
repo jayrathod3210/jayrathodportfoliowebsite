@@ -5,7 +5,7 @@ export const EASE = [0.22, 1, 0.36, 1] as const;
 
 export const itemVariants: Variants = {
   hidden: { opacity: 0, y: 28, filter: 'blur(8px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: EASE } },
+  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.5, ease: EASE } },
 };
 
 type Tag = 'div' | 'section' | 'ul' | 'ol' | 'li' | 'p' | 'span';
@@ -31,7 +31,7 @@ export function Reveal({
       initial={{ opacity: 0, y, filter: 'blur(8px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.9, ease: EASE, delay }}
+      transition={{ duration: 0.55, ease: EASE, delay }}
     >
       {children}
     </Comp>
@@ -45,7 +45,7 @@ export function Reveal({
 export function Stagger({
   children,
   className,
-  stagger = 0.09,
+  stagger = 0.06,
   delay = 0,
   as = 'div',
 }: {
@@ -103,7 +103,7 @@ export function WordReveal({
     <motion.span
       className={className}
       {...trigger}
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06, delayChildren: delay } } }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.04, delayChildren: delay } } }}
     >
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden pb-[0.12em] align-bottom">
@@ -111,7 +111,7 @@ export function WordReveal({
             className={`inline-block ${highlight.includes(word) ? 'text-gradient' : ''} ${wordClassName ?? ''}`}
             variants={{
               hidden: { y: '100%', opacity: 0, filter: 'blur(6px)' },
-              show: { y: '0%', opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: EASE } },
+              show: { y: '0%', opacity: 1, filter: 'blur(0px)', transition: { duration: 0.5, ease: EASE } },
             }}
           >
             {word}

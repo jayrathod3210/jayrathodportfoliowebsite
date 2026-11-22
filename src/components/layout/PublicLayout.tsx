@@ -43,9 +43,10 @@ export function PublicLayout() {
         <Suspense fallback={<Spinner className="min-h-[70vh]" label="Loading page…" />}>
           <motion.div
             key={pathname}
-            initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.6, ease: EASE }}
+            // Kept short so a click feels instant: the new page is readable almost immediately.
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25, ease: EASE }}
           >
             <Outlet />
           </motion.div>

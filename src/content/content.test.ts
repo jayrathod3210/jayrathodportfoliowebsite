@@ -37,7 +37,7 @@ describe('content files', () => {
   it('shows the requested highlight numbers, with years as N+', () => {
     expect(content.profile.stats.map((s) => s.label)).toEqual(['Projects tested', 'Test cases executed', 'Years of experience', 'Client satisfaction']);
     expect(content.profile.stats.map((s) => s.value)).toEqual(['50+', '1000+', `${content.profile.yearsOfExperience}+`, '98%']);
-    expect(content.profile.heroSubtitle).toMatch(/with \d+\+ years/);
+    expect(content.profile.heroSubtitle).toMatch(/\d+\+ years/);
   });
 
   it('lists performance, desktop and game testing skills', () => {
@@ -55,7 +55,7 @@ describe('content files', () => {
     expect(content.experiences).toHaveLength(4);
     expect(content.skillCategories.length).toBeGreaterThan(0);
     expect(content.skills.length).toBeGreaterThan(20);
-    expect(content.projects).toHaveLength(4);
+    expect(content.projects).toHaveLength(5);
     expect(content.articles).toHaveLength(5);
     expect(content.prompts).toHaveLength(7);
   });

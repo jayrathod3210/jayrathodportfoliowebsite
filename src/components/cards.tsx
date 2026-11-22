@@ -141,8 +141,9 @@ export function ProjectCard({ project, index }: { project: Project; index?: numb
         </div>
         {index !== undefined && <span className="font-mono text-xs text-subtle">{String(index + 1).padStart(2, '0')}</span>}
       </div>
-      <h3 className="relative mt-5 text-xl leading-snug font-semibold transition-colors group-hover:text-accent-soft">
-        <Link to={`/projects/${project.slug}`} className="after:absolute after:inset-0">
+      {/* Not `relative`: the link's ::after must stretch over the whole card, and z-10 keeps it above the positioned rows below. */}
+      <h3 className="mt-5 text-xl leading-snug font-semibold transition-colors group-hover:text-accent-soft">
+        <Link to={`/projects/${project.slug}`} className="after:absolute after:inset-0 after:z-10">
           {project.title}
         </Link>
       </h3>

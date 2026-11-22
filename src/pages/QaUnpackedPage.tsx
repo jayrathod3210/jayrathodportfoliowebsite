@@ -28,12 +28,12 @@ export function QaUnpackedPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 1, ease: EASE, delay: 0.1 }}
+            transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
             className="mt-5 text-6xl leading-none sm:text-8xl lg:text-9xl"
           >
             <QaUnpackedWordmark name={brand.name} />
           </motion.h1>
-          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}>
+          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: EASE, delay: 0.15 }}>
             <p className="mt-6 font-mono text-xl text-unpacked-soft">{brand.tagline}</p>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{brand.description}</p>
             <div className="mt-10">

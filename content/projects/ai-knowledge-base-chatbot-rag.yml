@@ -1,0 +1,37 @@
+title: AI Knowledge Base Chatbot (RAG)
+summary: "Tested an organization-level AI chatbot that answers questions from a company knowledge base using retrieval-augmented generation (RAG) and system prompts, and built automated test scripts for it, validating that answers are accurate, grounded in stored knowledge and consistent with the bot's instructions."
+isSample: false
+featured: false
+order: 5
+businessContext: "An organization-level knowledge base platform where teams store their internal knowledge, such as documents, policies and guides, and an AI chatbot answers questions from it. The chatbot uses retrieval-augmented generation (RAG): it searches the stored knowledge for relevant content and uses it to generate an answer, guided by a system prompt that sets its scope, tone and rules. Because people act on what the chatbot tells them, an answer that is wrong, made up or based on the wrong document is a real business risk."
+testingApproach: "Tested the full chatbot flow, from storing knowledge to the final answer. Checked that knowledge added to the platform was stored correctly and that the chatbot retrieved the right content for each question. Validated answers against the source knowledge for accuracy and completeness, and asked questions outside the knowledge base to confirm the bot said it didn't know instead of making up an answer. Tested system prompt behavior (scope, tone, response rules and refusals), including attempts to make the bot ignore its instructions, and checked consistency across repeated and rephrased questions and multi-turn conversations. Built automated test scripts so the key chatbot scenarios can be re-run quickly whenever the knowledge, retrieval or system prompt changes."
+technologies:
+  - AI Chatbot Testing
+  - RAG (Retrieval-Augmented Generation)
+  - LLM / Generative AI
+  - Knowledge Base
+  - System Prompts
+  - AI Output Validation
+  - Test Automation
+responsibilities:
+  - Tested the end-to-end chatbot experience on an organization-level knowledge base platform.
+  - Validated knowledge storage, making sure content added to the knowledge base was stored and available to the chatbot.
+  - Tested RAG retrieval, checking that the chatbot found and used the right knowledge for each question.
+  - Validated chatbot answers against the source knowledge for accuracy, completeness and relevance.
+  - Tested system prompt behavior, including scope, tone, response rules and refusals.
+  - Tested how the chatbot handled questions outside the knowledge base, ambiguous questions and multi-turn conversations.
+  - Built automated test scripts for the chatbot's key scenarios, so they can be re-run after every knowledge, retrieval or prompt change.
+  - Reported incorrect, made-up or inconsistent answers to the team, with the question, the expected answer and the source content.
+challenges:
+  - AI answers are not fixed, so the same question can be answered differently each time. Testing meant judging whether an answer was correct and grounded, not matching exact text.
+  - "Telling a retrieval problem apart from a generation problem: did the bot find the wrong content, or find the right content and still answer badly?"
+  - Catching confident but made-up answers (hallucinations), especially for questions the knowledge base doesn't cover.
+  - Making sure the system prompt's rules held up when users rephrased questions or tried to push the bot outside its scope.
+  - Automating checks for answers that never come back word-for-word the same, so scripts had to verify that an answer was correct rather than compare exact text.
+outcomes:
+  - Chatbot answers validated against the organization's knowledge base across storage, retrieval, answer generation and system prompt behavior.
+  - Incorrect, made-up and inconsistent answers reported with clear evidence, so the team could fix the knowledge, retrieval or prompts.
+  - Automated test scripts in place for the chatbot's key scenarios, so they can be re-run quickly after changes instead of being retested by hand.
+images: []
+githubUrl: ""
+liveUrl: ""
