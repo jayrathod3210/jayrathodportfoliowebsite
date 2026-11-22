@@ -1,0 +1,34 @@
+title: Real Estate Platform
+summary: "Manual QA Lead for a large-scale PropTech platform covering the complete property buying and selling journey, including AI-powered features, from test strategy through UAT and production release."
+isSample: false
+featured: true
+order: 3
+businessContext: "A large-scale real estate SaaS platform covering the complete property buying and selling journey end to end, including AI-powered features. With many user roles and long journeys from listing to deal, defects in core workflows directly affect buyers, sellers and deal progression."
+testingApproach: "Created the test strategy, test plans and detailed test cases for end-to-end property workflows. Covered key journeys including property listing, search and filters, property details, buyer–seller interactions and deal progression. Performed functional, exploratory, regression, cross-browser and mobile-responsive testing, and validated AI-powered features for accuracy, relevance and expected behavior across different user scenarios."
+technologies:
+  - Manual Testing
+  - Exploratory Testing
+  - Regression Testing
+  - Cross-Browser Testing
+  - Mobile-Responsive Testing
+  - AI Feature Validation
+  - UAT
+responsibilities:
+  - Led manual testing for a large-scale real estate product covering the full property buy/sell lifecycle.
+  - Created the test strategy, test plans and detailed test cases for end-to-end property workflows.
+  - Validated AI-powered features for accuracy, relevance and expected behavior across different user scenarios.
+  - Coordinated testing across the QA team, including task allocation, test execution tracking, and review of test cases and defects.
+  - Managed the defect lifecycle, prioritized issues by business impact and worked with developers on quick resolution.
+  - Supported UAT and production release validation, and shared test progress and quality risks with stakeholders.
+challenges:
+  - Covering a large, end-to-end buy/sell lifecycle across many user roles, from listing and search to deal progression.
+  - Validating AI-powered features for relevance and expected behavior, not just pass/fail functionality.
+  - Keeping the product consistent across browsers and mobile screen sizes.
+  - Coordinating a QA team's work and prioritizing defects by business impact.
+outcomes:
+  - Test strategy, test plans and detailed test cases established for end-to-end property workflows.
+  - Defects prioritized by business impact and resolved quickly together with developers.
+  - UAT and production release validation supported, with test progress and quality risks shared with stakeholders.
+images: []
+githubUrl: ""
+liveUrl: ""

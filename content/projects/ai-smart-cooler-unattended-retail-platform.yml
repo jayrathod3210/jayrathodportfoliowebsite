@@ -1,0 +1,30 @@
+title: AI-Powered Smart Cooler & Unattended Retail Platform
+summary: "Owned mobile app and API testing for a global beverage brand's AI-powered smart cooler platform, where shoppers unlock a cooler from their phone, grab a drink and are charged automatically, and was responsible for aligning and signing off every production release."
+isSample: false
+featured: false
+order: 4
+businessContext: "A global unattended retail initiative that replaces traditional coil vending machines with AI-powered, grab-and-go smart coolers. Shoppers unlock the cooler by tapping a card or scanning a QR code from a mobile web app; in-cooler cameras and edge AI recognize which products are taken, and the payment is charged automatically when the door closes. Because the mobile app and its APIs drive unlocking, payment and receipts, a defect there directly blocks sales or charges customers incorrectly."
+testingApproach: "Manual functional, exploratory and regression testing of the mobile application, combined with API testing of the services behind it. Every production release was aligned with stakeholders, and requirements were clarified in grooming sessions before development so that test scenarios matched the expected business behavior."
+technologies:
+  - Mobile App Testing
+  - Manual Testing
+  - API Testing
+  - REST APIs
+  - Regression Testing
+  - Release Validation
+responsibilities:
+  - Tested the mobile application manually, covering functional, exploratory and regression testing.
+  - Performed API testing to validate the services behind the mobile app.
+  - Owned production release responsibility, aligning every release and validating it before go-live.
+  - Took part in grooming sessions to clarify requirements and acceptance criteria before development.
+  - Held regular discussions with stakeholders to align on release scope, quality status and risks.
+challenges:
+  - Testing a mobile app whose actions depend on a physical cooler, a smart lock and an automated payment.
+  - Keeping releases aligned across stakeholders while taking responsibility for production readiness.
+  - Turning requirements into clear, testable scenarios early, through grooming sessions.
+outcomes:
+  - Every production release aligned with stakeholders and validated before go-live.
+  - Requirements clarified in grooming sessions before development, so test scenarios matched expected behavior.
+images: []
+githubUrl: ""
+liveUrl: ""

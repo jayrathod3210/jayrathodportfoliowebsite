@@ -55,7 +55,7 @@ describe('content files', () => {
     expect(content.experiences).toHaveLength(4);
     expect(content.skillCategories.length).toBeGreaterThan(0);
     expect(content.skills.length).toBeGreaterThan(20);
-    expect(content.projects).toHaveLength(3);
+    expect(content.projects).toHaveLength(4);
     expect(content.articles).toHaveLength(5);
     expect(content.prompts).toHaveLength(7);
   });
@@ -78,8 +78,8 @@ describe('content files', () => {
     expect(unique(content.promptCategories.map((c) => c.id))).toBe(true);
   });
 
-  it('flags placeholder projects as samples', () => {
-    content.projects.forEach((p) => expect(p.isSample && p.title.startsWith('Sample')).toBe(true));
+  it('flags a project as a sample exactly when its title says so', () => {
+    content.projects.forEach((p) => expect(p.isSample, p.title).toBe(p.title.startsWith('Sample')));
   });
 });
 

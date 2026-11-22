@@ -1,0 +1,32 @@
+title: AI-Powered Document Analysis Platform
+summary: "QA Lead for a US client's FinTech product that uses AI to extract, filter and analyze invoice data, validating AI output accuracy so financial analysts can review large volumes of invoices faster and with fewer errors."
+isSample: false
+featured: true
+order: 2
+businessContext: "A FinTech, AI and document intelligence SaaS product for a US-based client. It uses AI to extract, filter and analyze document data, helping financial analysts review large volumes of invoices faster and with fewer errors. Because analysts rely on the extracted numbers, wrong or misleading AI output is a direct business risk."
+testingApproach: "Validated AI-extracted fields (amounts, dates, vendors, line items) against source invoices, and checked that AI output stayed consistent across repeated runs. Covered edge cases such as different invoice formats, poor-quality scans, missing fields, duplicates and unusual layouts. Performed functional, regression, API and end-to-end testing across the full data-processing workflow, and automated critical regression flows with Playwright."
+technologies:
+  - Playwright
+  - REST APIs
+  - AI Output Validation
+  - Regression Testing
+  - UAT
+responsibilities:
+  - Led testing of AI-driven invoice data extraction and filtering features, from requirement analysis through release.
+  - Validated the accuracy of AI-extracted fields (amounts, dates, vendors, line items) against source invoices.
+  - Validated the filtering, search and analysis workflows analysts use, making sure results were complete and correct.
+  - Performed functional, regression, API and end-to-end testing across the full data-processing workflow.
+  - Automated critical regression flows using Playwright.
+  - Worked closely with the client, developers and analysts to turn business rules into test scenarios.
+  - Managed defects, supported UAT and provided release-readiness reporting to the US client.
+challenges:
+  - "Testing AI output that can vary: checking consistency and reliability across repeated runs and flagging incorrect or misleading results."
+  - Covering real-world invoice variety, including different formats, poor-quality scans, missing fields, duplicates and unusual layouts.
+  - Making sure financial data stayed accurate end to end, from extraction through filtering, search and analysis.
+outcomes:
+  - Critical regression flows automated with Playwright to keep releases stable.
+  - Business rules turned into test scenarios together with the client, developers and analysts.
+  - UAT supported and release-readiness reporting delivered to the US client.
+images: []
+githubUrl: ""
+liveUrl: ""
