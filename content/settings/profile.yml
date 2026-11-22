@@ -1,46 +1,63 @@
 name: Jay Rathod
-positioning: QA Engineer & Automation Professional
-heroTitle: I Turn Testing Into Quality Engineering.
-heroSubtitle: QA professional with {years} years of experience across manual testing, web, mobile, desktop and game applications, automation, performance and API testing. Exploring smarter ways to improve software quality through automation and AI.
+positioning: Lead QA Engineer & Automation Professional
+heroTitle: I Don't Just Find Bugs. I Engineer Quality.
+heroSubtitle: "{years} years across web, mobile, desktop and game applications,
+  covering manual, automation, API and performance testing. Now building
+  AI-assisted workflows that make testing faster and smarter."
 careerStart: 2021-04
-shortIntro: I started my career in manual testing and grew into automation and quality engineering. Today I focus on Playwright with TypeScript, API testing, and practical ways AI can make QA teams faster and sharper.
-about: |-
-  I began my career as a manual tester, working hands-on with web applications, mobile applications and early API checks. Those first two years taught me the fundamentals that still shape how I work: functional and regression testing, reading requirements closely, and thinking about how real users will actually break a product.
+shortIntro: I lead quality, not just testing. From manual tester to QA leader,
+  I've grown by solving real problems, and today I guide teams, plan resources,
+  train engineers, and work with management to set quality goals and direction.
+  I stay hands-on with Playwright, TypeScript, and API testing, and add an AI
+  layer that speeds up testing and widens coverage, helping teams catch what
+  traditional approaches miss. I share what I learn through blogs so more people
+  can build better software.
+about: >-
+  I began my career as a manual tester, working hands-on with web and mobile
+  applications and early API checks. Those first two years built the foundation
+  I still rely on: functional and regression testing, reading requirements
+  closely, and thinking like the real users who will eventually break a product.
 
-  Over the next two years my focus moved to web application testing and automation. I built automation with **Cypress**, worked with **Selenium**, and learned how a good automation suite changes the speed and confidence of a release.
 
-  Today I work with **Playwright and TypeScript**, test APIs with **Postman** and **Swagger**, manage work in **Jira**, and explore how **AI-assisted testing** can improve QA productivity: generating test ideas, triaging failures and reviewing coverage.
+  Over the next two years, my focus shifted to web testing and automation. I built test suites with Cypress, worked with Selenium, and saw firsthand how strong automation changes the speed and confidence of every release.
 
-  What connects all of it is a simple belief: testing is not a phase at the end of development. It is a way of understanding the product and protecting the people who use it.
-philosophy: Testing is not just about executing test cases. It is about understanding the product, identifying risks, challenging assumptions, and ensuring software quality.
+
+  Today I lead quality, not just testing. I guide QA teams, plan resources, train engineers, and work with management to set quality goals and long-term direction. I stay hands-on with Playwright and TypeScript, test APIs with Postman and Swagger, and manage delivery in Jira. On top of that, I add an AI layer that speeds up testing and broadens coverage: generating test ideas, triaging failures, and finding gaps that traditional approaches miss.
+
+
+  I also write and share what I learn, because better QA starts with people who understand why quality matters. What connects all of it is a simple belief: testing is not a phase at the end of development. It is a way of understanding the product and protecting the people who use it.
+philosophy: Testing isn't just executing test cases. It's understanding the
+  product, uncovering risks, challenging assumptions, and protecting the people
+  who rely on the software
 journey:
   - period: Years 1–2
     title: Manual testing foundations
-    description: Manual testing of web and mobile applications, basic API testing, and functional and regression testing.
+    description: Manual testing of web and mobile applications, basic API testing,
+      and functional and regression testing.
   - period: Years 3–4
     title: Web testing & automation
-    description: Primarily web application testing, building Cypress automation, and working with Selenium and automation practices.
+    description: Primarily web application testing, building Cypress automation, and
+      working with Selenium and automation practices.
   - period: Now
-    title: Quality engineering & AI-assisted QA
-    description: Playwright with TypeScript, API testing with Postman and Swagger, test strategy, and AI-powered QA workflows.
+    title: Quality leadership & AI-driven QA
+    description: eading QA teams, planning resources, and shaping quality strategy
+      with management. Hands-on with Playwright, TypeScript, Postman, and
+      Swagger, with an AI layer that speeds up testing and widens coverage.
 interests:
-  - Playwright with TypeScript
-  - Cypress
-  - Selenium
-  - API testing with Postman & Swagger
-  - AI-assisted software testing
   - AI-powered QA workflows
-  - Test strategy & quality engineering
+  - Test strategy and quality engineering at scale
+  - Building QA culture through mentoring and knowledge sharing
+  - Scaling Playwright frameworks for growing teams
 goals:
   - Grow from test execution into quality engineering and test strategy.
   - Build practical, maintainable automation with Playwright and TypeScript.
   - Explore how AI can make QA workflows smarter and more productive.
   - Share practical QA knowledge with the community through QA UNPACKED.
-avatar: ""
+avatar: /images/uploads/whatsapp-image-2026-11-22-at-7.59.14-pm.jpeg
 location: Ahmedabad, Gujarat, India
 email: jayrathod3210@gmail.com
 whatsapp: +91 7600682088
-resume: ""
+resume: /images/uploads/jay_rathod_qa_lead_resume.pdf
 socials:
   - platform: linkedin
     label: LinkedIn

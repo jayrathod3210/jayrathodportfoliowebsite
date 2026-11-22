@@ -1,0 +1,46 @@
+title: Enterprise SaaS Collaboration Platform
+summary: Enterprise-level SaaS product with frequent release cycles, where I led
+  QA end to end, from manual testing to building and owning the automation
+  framework.
+isSample: true
+featured: true
+order: 1
+businessContext: An enterprise-level SaaS management and collaboration product
+  with frequent release cycles. Regression was mostly manual and repeated smoke
+  testing slowed developer feedback, so each release needed faster, more
+  reliable validation without losing coverage of new features.
+testingApproach: Built a hybrid automation framework combining Page Object
+  Model, data-driven tests, an API validation layer and CI/CD. Moved regression
+  to an automation-first strategy while keeping manual and exploratory testing
+  for new features and edge cases. A daily automated health run replaced
+  repeated manual smoke testing, and a custom AI agent layer speeds up test
+  creation and maintenance, with QA review before anything is merged.
+technologies:
+  - "- Playwright   - TypeScript   - Page Object Model   - Data-Driven
+    Testing   - REST APIs   - Azure DevOps Pipelines   - GitHub Actions   - AWS
+    S3   - Git   - Claude Code (AI agent)   - Jira"
+responsibilities:
+  - >-2
+     - Owned the full QA cycle as Automation Lead / QA Lead, covering test planning, manual and exploratory testing, automation, regression and end-to-end release validation.
+      - Built a hybrid Playwright + TypeScript automation framework from scratch, combining Page Object Model, data-driven testing, an API validation layer and CI/CD.
+      - Developed a custom AI agent layer within the framework to speed up test creation and maintenance, with QA review before merge.
+      - Integrated automation with Azure DevOps and GitHub Actions pipelines, with execution reports stored on AWS S3.
+      - Suggested feature enhancements and usability improvements to product and development teams based on testing insights, using AI-assisted analysis.
+      - Mentored QA team members on automation practices, test design and defect reporting.
+      - Provided QA status updates, defect trends and release-readiness reports to stakeholders.
+challenges:
+  - >-
+    - Moving from a manual-heavy process to automation-first regression without
+    losing manual coverage for new features and edge cases.
+      - Keeping up with frequent release cycles across end-to-end business workflows, authentication and role-based access, and multiple browsers.
+      - Using AI to speed up test creation and maintenance while keeping quality under control through QA review before merge.
+      - Giving developers faster feedback than repeated manual smoke testing could.
+outcomes:
+  - >-
+    - Reduced weekly platform regression from 5–6 hours of manual effort to
+    under 1 hour through automation.
+      - Replaced repeated manual smoke testing with a daily automated health run, giving developers faster feedback and quicker root-cause analysis.
+      - Established an automation-first regression strategy, with execution reports from Azure DevOps and GitHub Actions stored on AWS S3.
+images: []
+githubUrl: ""
+liveUrl: ""
