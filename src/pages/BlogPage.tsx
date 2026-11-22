@@ -10,6 +10,7 @@ import { Card, Container, EmptyState } from '../components/ui/primitives';
 import { SearchInput } from '../components/ui/form';
 import { Button } from '../components/ui/Button';
 import { ArticleCard, ArticleCover, ArticleMeta, UpcomingArticle } from '../components/cards';
+import { Reveal, Stagger } from '../components/fx/Reveal';
 
 function FilterChip({ active, onClick, children }: { active: boolean; onClick: () => void; children: string }) {
   return (
@@ -60,9 +61,10 @@ export function BlogPage() {
       <PageHeader
         eyebrow="Blog"
         title="Notes on testing & quality"
+        highlight={["quality"]}
         description="Practical writing on software testing, automation, API testing, AI in QA and growing a career in quality engineering."
       />
-      <Container className="py-12">
+      <Container className="py-16">
         {published.length > 0 && (
           <div className="mb-10 space-y-4">
             <div className="max-w-xl">
@@ -103,7 +105,8 @@ export function BlogPage() {
         )}
 
         {featured && (
-          <Card interactive className="group relative mb-10 grid overflow-hidden md:grid-cols-2">
+          <Reveal className="mb-10">
+          <Card interactive className="group relative grid overflow-hidden md:grid-cols-2">
             <ArticleCover article={featured} className="h-full md:aspect-auto" />
             <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
               <p className="font-mono text-xs tracking-wider text-accent-soft uppercase">Featured article</p>
@@ -116,6 +119,7 @@ export function BlogPage() {
               <ArticleMeta article={featured} categoryName={categoryName(featured.categoryId)} />
             </div>
           </Card>
+          </Reveal>
         )}
 
         {published.length === 0 ? (
@@ -125,11 +129,11 @@ export function BlogPage() {
             description="No articles have been published yet. Here's what's currently being written."
           />
         ) : grid.length > 0 ? (
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {grid.map((a) => (
               <ArticleCard key={a.id} article={a} categoryName={categoryName(a.categoryId)} />
             ))}
-          </div>
+          </Stagger>
         ) : filtering ? (
           <EmptyState
             icon={<SearchX className="size-8" />}
@@ -144,15 +148,15 @@ export function BlogPage() {
 
         {upcoming.length > 0 && !filtering && (
           <section className="mt-16" aria-labelledby="upcoming">
-            <h2 id="upcoming" className="text-xl font-semibold">
+            <h2 id="upcoming" className="text-2xl font-semibold">
               In the works
             </h2>
             <p className="mt-1 text-sm text-muted">Draft topics currently being written. Not yet published.</p>
-            <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <Stagger className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {upcoming.map((a) => (
                 <UpcomingArticle key={a.id} article={a} categoryName={categoryName(a.categoryId)} />
               ))}
-            </div>
+            </Stagger>
           </section>
         )}
       </Container>

@@ -8,28 +8,32 @@ import { LinkButton } from '../components/ui/Button';
 import { SampleBadge } from '../components/cards';
 import { SocialIcon } from '../components/ui/SocialIcon';
 import { NotFoundPage } from './NotFoundPage';
+import { Reveal } from '../components/fx/Reveal';
 
 function ListSection({ title, items }: { title: string; items: string[] }) {
   if (!items.length) return null;
   return (
-    <section>
-      <h2 className="text-xl font-semibold">{title}</h2>
-      <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-300 marker:text-accent">
+    <Reveal as="section">
+      <h2 className="text-2xl font-semibold">{title}</h2>
+      <ul className="mt-4 space-y-2.5 leading-relaxed text-slate-300">
         {items.map((i) => (
-          <li key={i}>{i}</li>
+          <li key={i} className="flex gap-3">
+            <span aria-hidden className="mt-2.5 size-1.5 shrink-0 rounded-full bg-cyan" />
+            {i}
+          </li>
         ))}
       </ul>
-    </section>
+    </Reveal>
   );
 }
 
 function TextSection({ title, text }: { title: string; text: string }) {
   if (!text) return null;
   return (
-    <section>
-      <h2 className="text-xl font-semibold">{title}</h2>
-      <p className="mt-3 leading-relaxed whitespace-pre-line text-slate-300">{text}</p>
-    </section>
+    <Reveal as="section">
+      <h2 className="text-2xl font-semibold">{title}</h2>
+      <p className="mt-4 leading-relaxed whitespace-pre-line text-slate-300">{text}</p>
+    </Reveal>
   );
 }
 
@@ -43,8 +47,8 @@ export function ProjectDetailPage() {
 
   return (
     <article>
-      <header className="hero-backdrop border-b border-line">
-        <Container className="py-12 sm:py-16">
+      <header className="relative overflow-hidden border-b border-white/[0.06] bg-[radial-gradient(ellipse_at_top,rgb(59_130_246/0.18),transparent_60%)]">
+        <Container className="pt-32 pb-14 sm:pt-40 sm:pb-20">
           <Link to="/projects" className="inline-flex items-center gap-1 text-sm text-muted hover:text-white">
             <ArrowLeft className="size-4" aria-hidden /> All projects
           </Link>
@@ -94,7 +98,7 @@ export function ProjectDetailPage() {
             </section>
           )}
         </div>
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+        <aside className="lg:sticky lg:top-28 lg:self-start">
           <Card className="p-6">
             <h2 className="text-sm font-semibold tracking-wider text-subtle uppercase">Technologies</h2>
             <div className="mt-4 flex flex-wrap gap-1.5">

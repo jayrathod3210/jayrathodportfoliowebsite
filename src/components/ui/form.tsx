@@ -2,10 +2,10 @@ import { useId, type InputHTMLAttributes, type ReactNode, type SelectHTMLAttribu
 import { cn } from '../../lib/utils';
 
 const control =
-  'w-full rounded-lg border bg-navy-900 px-3 py-2 text-sm text-white placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 disabled:opacity-60';
+  'w-full rounded-xl border bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 disabled:opacity-60';
 
 function controlClass(error?: string, className?: string) {
-  return cn(control, error ? 'border-red-500/70' : 'border-line-strong', className);
+  return cn(control, error ? 'border-red-500/70' : 'border-white/10 hover:border-white/20', className);
 }
 
 interface FieldShellProps {

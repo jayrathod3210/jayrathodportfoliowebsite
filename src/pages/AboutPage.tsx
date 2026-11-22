@@ -5,6 +5,8 @@ import { PageHeader } from '../components/layout/PageHeader';
 import { Avatar, Card, Container } from '../components/ui/primitives';
 import { LinkButton } from '../components/ui/Button';
 import { Markdown } from '../components/Markdown';
+import { JourneyTimeline } from '../components/JourneyTimeline';
+import { Reveal, Stagger } from '../components/fx/Reveal';
 
 export function AboutPage() {
   const { profile } = useSnapshot();
@@ -12,76 +14,68 @@ export function AboutPage() {
 
   return (
     <>
-      <PageHeader eyebrow="About" title="From test execution to quality engineering" description={profile.shortIntro} />
+      <PageHeader
+        eyebrow="About"
+        title="From test execution to quality engineering"
+        highlight={['quality', 'engineering']}
+        description={profile.shortIntro}
+      />
 
-      <Container className="grid gap-12 py-16 lg:grid-cols-[1fr_320px]">
-        <div className="space-y-14">
-          <section aria-labelledby="story">
-            <h2 id="story" className="text-2xl font-semibold">
+      <Container className="grid gap-14 py-20 lg:grid-cols-[1fr_320px]">
+        <div className="space-y-24">
+          <Reveal as="section">
+            <h2 id="story" className="text-3xl font-semibold">
               My story
             </h2>
-            <Markdown content={profile.about} className="prose-article mt-5" />
-          </section>
+            <Markdown content={profile.about} className="prose-article prose-lg mt-6" />
+          </Reveal>
 
-          <section aria-labelledby="philosophy">
-            <h2 id="philosophy" className="sr-only">
-              Testing philosophy
-            </h2>
-            <figure className="relative rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 to-transparent p-8 sm:p-10">
-              <Quote className="size-8 text-accent" aria-hidden />
-              <blockquote className="mt-4 text-xl leading-relaxed font-medium text-white sm:text-2xl">
-                “{profile.philosophy}”
-              </blockquote>
-              <figcaption className="mt-4 text-sm text-muted">My testing philosophy</figcaption>
+          <Reveal as="section">
+            <h2 className="sr-only">Testing philosophy</h2>
+            <figure className="border-spin relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-accent/15 via-navy-900 to-navy-950 p-8 sm:p-12">
+              <div aria-hidden className="absolute -top-20 -left-20 size-72 rounded-full bg-[radial-gradient(circle,rgb(34_211_238/0.18),transparent_65%)]" />
+              <Quote className="relative size-10 text-cyan" aria-hidden />
+              <blockquote className="relative mt-6 text-2xl leading-snug font-medium text-white sm:text-3xl">“{profile.philosophy}”</blockquote>
+              <figcaption className="relative mt-6 font-mono text-xs tracking-[0.16em] text-subtle uppercase">My testing philosophy</figcaption>
             </figure>
+          </Reveal>
+
+          <section>
+            <Reveal>
+              <h2 className="mb-8 text-3xl font-semibold">Career journey</h2>
+            </Reveal>
+            <JourneyTimeline stages={profile.journey} />
           </section>
 
-          <section aria-labelledby="journey">
-            <h2 id="journey" className="text-2xl font-semibold">
-              Career journey
-            </h2>
-            <ol className="mt-6 space-y-4">
-              {profile.journey.map((stage, i) => (
-                <li key={stage.id}>
-                  <Card className="flex gap-5 p-6">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-navy-800 font-mono text-sm text-accent-soft">
-                      0{i + 1}
-                    </span>
-                    <div>
-                      <p className="font-mono text-xs text-subtle">{stage.period}</p>
-                      <h3 className="mt-1 text-lg font-semibold">{stage.title}</h3>
-                      <p className="mt-1 text-sm text-muted">{stage.description}</p>
-                    </div>
-                  </Card>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section aria-labelledby="goals">
-            <h2 id="goals" className="text-2xl font-semibold">
-              Professional goals
-            </h2>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-              {profile.goals.map((goal) => (
+          <section>
+            <Reveal>
+              <h2 className="text-3xl font-semibold">Professional goals</h2>
+            </Reveal>
+            <Stagger as="ul" className="mt-8 grid gap-4 sm:grid-cols-2">
+              {profile.goals.map((goal, i) => (
                 <li key={goal}>
-                  <Card className="flex h-full gap-3 p-5">
-                    <Target className="mt-0.5 size-5 shrink-0 text-accent" aria-hidden />
-                    <p className="text-sm text-slate-300">{goal}</p>
+                  <Card interactive className="flex h-full flex-col gap-4 p-6">
+                    <div className="flex items-center justify-between">
+                      <span className="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent-soft">
+                        <Target className="size-5" aria-hidden />
+                      </span>
+                      <span className="font-mono text-xs text-subtle">{String(i + 1).padStart(2, '0')}</span>
+                    </div>
+                    <p className="leading-relaxed text-slate-200">{goal}</p>
                   </Card>
                 </li>
               ))}
-            </ul>
+            </Stagger>
           </section>
         </div>
 
-        <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <Card className="flex flex-col items-center p-6 text-center">
+        <Stagger as="div" className="space-y-5 lg:sticky lg:top-28 lg:self-start">
+          <Card className="flex flex-col items-center p-7 text-center">
             <Avatar src={profile.avatarUrl} name={profile.name} className="size-28 text-3xl" />
-            <p className="mt-4 text-lg font-semibold text-white">{profile.name}</p>
-            <p className="text-sm text-muted">{profile.positioning}</p>
+            <p className="mt-5 text-lg font-semibold text-white">{profile.name}</p>
+            <p className="text-sm text-accent-soft">{profile.positioning}</p>
             <p className="mt-1 text-xs text-subtle">{profile.location}</p>
-            <div className="mt-5 flex w-full flex-col gap-2">
+            <div className="mt-6 flex w-full flex-col gap-2">
               <LinkButton to="/contact">Let's Connect</LinkButton>
               {profile.resumeUrl && (
                 <LinkButton href={profile.resumeUrl} variant="secondary" external>
@@ -90,18 +84,17 @@ export function AboutPage() {
               )}
             </div>
           </Card>
-          <Card className="p-6">
-            <h2 className="text-sm font-semibold tracking-wider text-subtle uppercase">Areas of interest</h2>
-            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+          <Card className="p-7">
+            <h2 className="font-mono text-[11px] tracking-[0.16em] text-subtle uppercase">Areas of interest</h2>
+            <ul className="mt-5 flex flex-wrap gap-2">
               {profile.interests.map((interest) => (
-                <li key={interest} className="flex gap-2">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                <li key={interest} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-slate-200">
                   {interest}
                 </li>
               ))}
             </ul>
           </Card>
-        </aside>
+        </Stagger>
       </Container>
     </>
   );

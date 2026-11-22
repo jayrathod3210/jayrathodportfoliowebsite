@@ -1,21 +1,39 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes, MouseEvent, ReactNode } from 'react';
+import { motion, type HTMLMotionProps } from 'motion/react';
 import { Loader2 } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { itemVariants, Reveal } from '../fx/Reveal';
 
 export function Container({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return <div className={cn('mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8', className)} {...props} />;
 }
 
+function trackPointer(e: MouseEvent<HTMLDivElement>) {
+  const r = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+  e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+}
+
+/**
+ * Surface used across the site. Inside a <Stagger> it animates in automatically.
+ * `interactive` adds the cursor-following spotlight, glowing border and lift on hover.
+ */
 export function Card({
   className,
   interactive,
+  onMouseMove,
   ...props
-}: HTMLAttributes<HTMLDivElement> & { interactive?: boolean }) {
+}: HTMLMotionProps<'div'> & { interactive?: boolean }) {
   return (
-    <div
+    <motion.div
+      variants={itemVariants}
+      onMouseMove={(e) => {
+        if (interactive) trackPointer(e);
+        onMouseMove?.(e);
+      }}
       className={cn(
-        'rounded-xl border border-line bg-navy-900/80',
-        interactive && 'transition-colors duration-200 hover:border-line-strong hover:bg-navy-850',
+        'rounded-2xl border border-white/[0.07] bg-gradient-to-b from-white/[0.045] to-white/[0.01]',
+        interactive && 'spotlight transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-white/[0.12]',
         className,
       )}
       {...props}
@@ -26,7 +44,7 @@ export function Card({
 type BadgeTone = 'neutral' | 'accent' | 'success' | 'warning' | 'danger' | 'unpacked';
 
 const badgeTones: Record<BadgeTone, string> = {
-  neutral: 'border-line-strong bg-navy-800 text-slate-300',
+  neutral: 'border-white/10 bg-white/5 text-slate-300',
   accent: 'border-accent/30 bg-accent/10 text-accent-soft',
   success: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
   warning: 'border-amber-500/30 bg-amber-500/10 text-amber-300',
@@ -50,9 +68,26 @@ export function Badge({ tone = 'neutral', className, children }: { tone?: BadgeT
 
 export function Tag({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <span className={cn('inline-flex rounded-md bg-navy-800 px-2 py-0.5 font-mono text-xs text-muted', className)}>
+    <span className={cn('inline-flex rounded-md border border-white/[0.06] bg-white/[0.03] px-2 py-0.5 font-mono text-xs text-muted', className)}>
       {children}
     </span>
+  );
+}
+
+export function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <p
+      className={cn(
+        'inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-[11px] font-medium tracking-[0.14em] text-accent-soft uppercase',
+        className,
+      )}
+    >
+      <span className="relative flex size-1.5">
+        <span className="absolute inline-flex size-full animate-ping-slow rounded-full bg-cyan opacity-70" />
+        <span className="relative inline-flex size-1.5 rounded-full bg-cyan" />
+      </span>
+      {children}
+    </p>
   );
 }
 
@@ -63,27 +98,33 @@ export function SectionHeading({
   action,
   as: Heading = 'h2',
   className,
+  align = 'left',
 }: {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   description?: ReactNode;
   action?: ReactNode;
   as?: 'h1' | 'h2';
   className?: string;
+  align?: 'left' | 'center';
 }) {
   return (
-    <div className={cn('mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between', className)}>
-      <div className="max-w-2xl">
-        {eyebrow && (
-          <p className="mb-2 font-mono text-xs font-medium tracking-wider text-accent-soft uppercase">{eyebrow}</p>
-        )}
-        <Heading className={cn('font-semibold tracking-tight', Heading === 'h1' ? 'text-3xl sm:text-4xl' : 'text-2xl sm:text-3xl')}>
+    <Reveal
+      className={cn(
+        'mb-10 flex flex-col gap-5 sm:mb-14',
+        align === 'center' ? 'items-center text-center' : 'sm:flex-row sm:items-end sm:justify-between',
+        className,
+      )}
+    >
+      <div className={cn('max-w-2xl', align === 'center' && 'flex flex-col items-center')}>
+        {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
+        <Heading className={cn('font-semibold tracking-tight', Heading === 'h1' ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]')}>
           {title}
         </Heading>
-        {description && <p className="mt-3 text-base text-muted">{description}</p>}
+        {description && <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{description}</p>}
       </div>
       {action && <div className="shrink-0">{action}</div>}
-    </div>
+    </Reveal>
   );
 }
 
@@ -101,9 +142,9 @@ export function EmptyState({
   className?: string;
 }) {
   return (
-    <div
+    <Reveal
       className={cn(
-        'flex flex-col items-center rounded-xl border border-dashed border-line-strong px-6 py-12 text-center',
+        'flex flex-col items-center rounded-2xl border border-dashed border-white/10 bg-white/[0.015] px-6 py-14 text-center',
         className,
       )}
     >
@@ -111,7 +152,7 @@ export function EmptyState({
       <h3 className="text-base font-semibold">{title}</h3>
       {description && <p className="mt-2 max-w-md text-sm text-muted">{description}</p>}
       {action && <div className="mt-6">{action}</div>}
-    </div>
+    </Reveal>
   );
 }
 
@@ -132,19 +173,19 @@ export function Avatar({ src, name, className }: { src: string | null; name: str
     .slice(0, 2)
     .join('')
     .toUpperCase();
-  if (src) {
-    return <img src={src} alt={`Portrait of ${name}`} className={cn('rounded-full object-cover', className)} loading="lazy" />;
-  }
   return (
-    <div
-      role="img"
-      aria-label={`${name} (profile photo placeholder)`}
-      className={cn(
-        'flex items-center justify-center rounded-full border border-line-strong bg-gradient-to-br from-navy-700 to-navy-850 font-semibold text-white',
-        className,
+    <div className={cn('relative shrink-0 rounded-full bg-gradient-to-br from-accent via-cyan to-violet p-[2px]', className)}>
+      {src ? (
+        <img src={src} alt={`Portrait of ${name}`} className="size-full rounded-full object-cover" loading="lazy" />
+      ) : (
+        <div
+          role="img"
+          aria-label={`${name} (profile photo placeholder)`}
+          className="flex size-full items-center justify-center rounded-full bg-navy-900 font-semibold tracking-tight text-white"
+        >
+          {initials}
+        </div>
       )}
-    >
-      {initials}
     </div>
   );
 }

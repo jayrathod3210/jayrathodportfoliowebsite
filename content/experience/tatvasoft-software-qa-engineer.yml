@@ -1,0 +1,16 @@
+role: Software QA Engineer
+company: Tatvasoft
+startDate: 2023-04
+endDate: 2024-11
+location: ""
+summary: Web application testing and Cypress automation.
+responsibilities:
+  - Partnered with developers and product owners to clarify requirements.
+  - Used TestRail for structured test case management and coverage tracking.
+contributions:
+  - Built a Cypress automation suite for a large web application, cutting regression execution time from 8 hours to 2 hours and improving release reliability by 40%.
+technologies:
+  - Cypress
+  - JavaScript
+  - TestRail
+order: 3

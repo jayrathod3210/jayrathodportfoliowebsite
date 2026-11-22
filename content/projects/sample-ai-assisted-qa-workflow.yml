@@ -1,0 +1,18 @@
+title: "Sample: AI-Assisted QA Workflow"
+summary: Placeholder project. Describe a workflow where AI tools improved QA work, such as test case generation, failure triage or coverage review.
+isSample: true
+featured: false
+order: 3
+businessContext: "[Which team or process this improved, and why it was needed.]"
+testingApproach: "[Which AI tools, where humans stay in the loop, and how output quality was reviewed.]"
+technologies:
+  - AI-assisted testing
+responsibilities:
+  - "[Your responsibilities]"
+challenges:
+  - "[A real challenge you solved]"
+outcomes:
+  - "[A real outcome]"
+images: []
+githubUrl: ""
+liveUrl: ""

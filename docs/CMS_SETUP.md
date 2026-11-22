@@ -79,15 +79,27 @@ Only GitHub accounts with **write access to the repository** can log in and edit
 ### Adding or editing a prompt
 **QA prompts → New Prompt.** Whatever you type in **Prompt text** is exactly what the **Copy Prompt** button copies. Use `{{placeholders}}` for parts the reader should replace; the prompt page lists them automatically.
 
-### Changing anything else
-Your profile, experience, skills, projects and QA UNPACKED links are in **`src/data/site.ts`**. Edit that file, then commit and push.
+### Everything else is in the CMS too
+
+You never need to edit code to change the site's content.
+
+| In the CMS | What it controls |
+|---|---|
+| **Site content → Profile, home page & story** | Name, hero headline and description, short intro, your story (About page), testing philosophy, career journey timeline, interests, goals, profile photo, location, email, WhatsApp number, résumé PDF, social links (LinkedIn, GitHub…), the **highlight numbers** under the hero (50+, 1000+, 98%…), the **Platforms I test** card and the scrolling **tools strip** |
+| **Site content → QA UNPACKED** | Brand name, tagline, description, focus areas, its own social links |
+| **Site content → Skills** | Skill categories and the skills in each (drag to reorder) |
+| **Site content → Blog & prompt categories** | The category lists offered when writing articles and prompts |
+| **Experience** | Each job: title, company, dates, responsibilities, contributions, technologies, display order |
+| **Projects** | Each case study, the "Sample placeholder" flag, featured on home page, screenshots |
+| **Blog articles** / **QA prompts** | As described above |
+
+### Years of experience update themselves
+In **Profile → Career start month** your start date is stored (currently `2021-04`). The site calculates your years of experience from it **every time a visitor opens the page**, so the number goes up on its own: no edit, no push, no redeploy. It rounds to the nearest year (5 years 7 months shows as 6; it becomes 7 in October 2027).
+
+In any text field on the Profile page, and in the highlight numbers, write `{years}` where the number should appear, e.g. *"QA professional with {years} years of experience"*. It is always shown with a plus, e.g. **6+**. To force a specific number instead, fill **Years of experience (manual override)**; leave it empty to go back to automatic.
 
 ### Adding a category
-Categories are listed in two places, which must match:
-1. `src/data/site.ts` (`blogCategories` or `promptCategories`)
-2. `public/admin/config.yml` (the `category` field's `options`)
-
-`npm test` fails if they drift apart.
+**Site content → Blog & prompt categories → Add.** Give it a name and a short lowercase ID (e.g. `api-testing`). It then appears in the Category dropdown when writing articles or prompts. Don't change an ID after posts use it.
 
 ---
 
@@ -110,3 +122,4 @@ Open <http://localhost:5173/admin/index.html>. Changes are written directly into
 | Login popup closes and nothing happens | Check the OAuth app callback URL is exactly `https://api.netlify.com/auth/done`, and that the GitHub provider is installed in Netlify. |
 | "Not Found" / no permission after login | The `repo:` value in `config.yml` is wrong, or your GitHub account lacks write access to it. |
 | Article saved but not on the site | Its Status is still **Draft**, or the Netlify build failed (check **Deploys** in Netlify). |
+| LinkedIn link asks visitors to log in | That's a LinkedIn setting, not the website: on LinkedIn go to **Me → View profile → Edit public profile & URL** and set **Your profile's public visibility** to **On**, with the sections you want visible switched on. |

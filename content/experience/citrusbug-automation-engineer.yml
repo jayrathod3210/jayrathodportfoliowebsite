@@ -1,0 +1,24 @@
+role: Automation Engineer
+company: Citrusbug
+startDate: 2024-12
+endDate: 2025-12
+location: ""
+summary: Designed and built a hybrid Playwright + TypeScript automation framework and CI/CD integration.
+responsibilities:
+  - Built dedicated smoke suites for rapid pre-production and post-production validation.
+  - Integrated CI/CD pipelines via GitHub Actions and Azure DevOps, triggered on pull request and staging merges.
+  - Set up HTML/JSON test reporting with automated email and Discord notifications.
+  - Conducted performance and load testing using Locust.
+contributions:
+  - Designed and built a hybrid automation framework from scratch (Page Object Model + data-driven + AI-assisted layer) using Playwright and TypeScript, scaling to 300+ automated test cases across chatbot, CRM, and project management applications.
+  - Reduced regression execution effort by ~80% through framework optimization and AI-assisted self-healing locators.
+  - Introduced AI-based test case generation from requirements and user stories, and AI-driven visual/UI regression testing across browsers and devices.
+technologies:
+  - Playwright
+  - TypeScript
+  - GitHub Actions
+  - Azure DevOps
+  - Locust
+  - Claude
+  - ChatGPT
+order: 2

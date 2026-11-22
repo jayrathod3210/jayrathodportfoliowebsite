@@ -1,5 +1,5 @@
 # Decap CMS configuration: https://decapcms.org/docs/configuration-options/
-# Only blog articles and prompts are managed here. Everything else lives in src/data/site.ts.
+# All website content is managed here. Nothing needs a code change.
 
 backend:
   name: github
@@ -22,6 +22,234 @@ slug:
   sanitize_replacement: "-"
 
 collections:
+  # ───────────────────────── Site content (single pages) ─────────────────────────
+  - name: settings
+    label: Site content
+    description: Your profile, home page text, story, skills, categories and QA UNPACKED.
+    editor: { preview: false }
+    files:
+      - name: profile
+        label: Profile, home page & story
+        file: content/settings/profile.yml
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Professional positioning, name: positioning, widget: string, hint: "Shown in the hero badge, footer and article author box." }
+          - { label: Hero headline, name: heroTitle, widget: string, hint: "Shown after \"Hi, I'm <name>.\" The last two words get the animated gradient." }
+          - { label: Hero description, name: heroSubtitle, widget: text, hint: "Write {years} where your years of experience should appear. It is shown as 6+ and updates automatically." }
+          - label: Career start month
+            name: careerStart
+            widget: string
+            pattern: ['^\d{4}-(0[1-9]|1[0-2])$', "Use the format YYYY-MM, for example 2021-04"]
+            hint: "Years of experience are calculated from this date automatically, so the number goes up by itself every year. Format YYYY-MM."
+          - label: Years of experience (manual override)
+            name: yearsOverride
+            widget: number
+            value_type: int
+            min: 0
+            max: 60
+            required: false
+            hint: "Leave EMPTY to calculate automatically from the career start month. Only fill this to force a specific number."
+          - { label: Short introduction, name: shortIntro, widget: text, hint: "Shown on the home page and at the top of the About page. {years} works here too." }
+          - { label: My story (About page), name: about, widget: markdown }
+          - { label: Testing philosophy, name: philosophy, widget: text }
+          - label: Career journey
+            name: journey
+            widget: list
+            summary: "{{fields.period}} · {{fields.title}}"
+            hint: Shown as the animated timeline on the home and About pages.
+            fields:
+              - { label: Period, name: period, widget: string, hint: "e.g. Years 1–2, or Now" }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Areas of interest
+            name: interests
+            widget: list
+            field: { label: Interest, name: interest, widget: string }
+          - label: Professional goals
+            name: goals
+            widget: list
+            field: { label: Goal, name: goal, widget: text }
+          - { label: Profile photo, name: avatar, widget: image, required: false, hint: "A square photo works best. Leave empty to show your initials." }
+          - { label: Location, name: location, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: WhatsApp number, name: whatsapp, widget: string, required: false, hint: "Include the country code, e.g. +91 7600682088. Shown publicly as a 'Chat on WhatsApp' link. Leave empty to hide." }
+          - { label: Résumé (PDF), name: resume, widget: file, required: false, hint: "Optional. Adds a 'View résumé' button on the About page." }
+          - label: Social links
+            name: socials
+            widget: list
+            summary: "{{fields.label}} · {{fields.url}}"
+            hint: Links with an empty URL are hidden.
+            fields: &socialFields
+              - label: Platform
+                name: platform
+                widget: select
+                options: [linkedin, github, instagram, youtube, x, medium, website, other]
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: url, widget: string, required: false }
+          - label: Highlight numbers (under the hero)
+            name: stats
+            widget: list
+            summary: "{{fields.value}} · {{fields.label}}"
+            hint: "Big animated numbers on the home page. The number at the start counts up, e.g. 50+, 1000+, 98%. Write {years} to use your automatic years of experience (shown as 6+)."
+            fields:
+              - { label: Value, name: value, widget: string, hint: "e.g. 50+, 1000+, 98%, or {years}" }
+              - { label: Label, name: label, widget: string, hint: "e.g. Projects tested" }
+          - label: Platforms I test
+            name: platforms
+            widget: list
+            hint: "Shown in the 'Platforms I test' card on the home page. Icons are picked from the words web, mobile, desktop, game and API."
+            field: { label: Platform, name: platform, widget: string }
+          - label: Tools strip (home page)
+            name: tools
+            widget: list
+            hint: The scrolling list of tools under the highlight numbers.
+            field: { label: Tool, name: tool, widget: string }
+
+      - name: qa-unpacked
+        label: QA UNPACKED
+        file: content/settings/qa-unpacked.yml
+        fields:
+          - { label: Brand name, name: name, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Focus areas
+            name: focusAreas
+            widget: list
+            field: { label: Focus area, name: area, widget: string }
+          - label: Social links
+            name: socials
+            widget: list
+            summary: "{{fields.label}} · {{fields.url}}"
+            hint: Links with an empty URL show as "coming soon".
+            fields: *socialFields
+
+      - name: skills
+        label: Skills
+        file: content/settings/skills.yml
+        fields:
+          - label: Skill categories
+            name: categories
+            widget: list
+            summary: "{{fields.name}}"
+            hint: Drag to reorder. Shown on the home page tabs and the Skills page.
+            fields:
+              - { label: Category name, name: name, widget: string }
+              - { label: Description, name: description, widget: string, required: false }
+              - label: Skills
+                name: skills
+                widget: list
+                field: { label: Skill, name: skill, widget: string }
+
+      - name: categories
+        label: Blog & prompt categories
+        file: content/settings/categories.yml
+        fields:
+          - label: Blog categories
+            name: blog
+            widget: list
+            summary: "{{fields.name}}"
+            fields: &categoryFields
+              - { label: Name, name: name, widget: string }
+              - label: ID
+                name: id
+                widget: string
+                pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only, e.g. api-testing"]
+                hint: "Short lowercase ID, e.g. api-testing. Don't change it once posts use it."
+              - { label: Description, name: description, widget: string, required: false }
+          - label: Prompt categories
+            name: prompts
+            widget: list
+            summary: "{{fields.name}}"
+            fields: *categoryFields
+
+  # ───────────────────────── Experience ─────────────────────────
+  - name: experience
+    label: Experience
+    label_singular: Experience entry
+    description: Jobs shown on the Experience page, ordered by the "Display order" number.
+    folder: content/experience
+    create: true
+    extension: yml
+    format: yml
+    identifier_field: role
+    slug: "{{slug}}"
+    summary: "{{order}}. {{role}} · {{company}}"
+    sortable_fields: [order, company, startDate]
+    editor: { preview: false }
+    fields:
+      - { label: Job title, name: role, widget: string }
+      - { label: Company, name: company, widget: string }
+      - label: Start month
+        name: startDate
+        widget: string
+        pattern: ['^\d{4}-(0[1-9]|1[0-2])$', "Use the format YYYY-MM, e.g. 2023-04"]
+      - label: End month
+        name: endDate
+        widget: string
+        required: false
+        pattern: ['^(\d{4}-(0[1-9]|1[0-2]))?$', "Use the format YYYY-MM, or leave empty"]
+        hint: Leave EMPTY if this is your current job.
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - label: Responsibilities
+        name: responsibilities
+        widget: list
+        field: { label: Responsibility, name: item, widget: text }
+      - label: Key contributions
+        name: contributions
+        widget: list
+        hint: Only results you can verify.
+        field: { label: Contribution, name: item, widget: text }
+      - { label: Technologies, name: technologies, widget: list, default: [] }
+      - { label: Display order, name: order, widget: number, value_type: int, min: 1, default: 1, hint: "1 appears first." }
+
+  # ───────────────────────── Projects ─────────────────────────
+  - name: projects
+    label: Projects
+    label_singular: Project
+    description: Case studies on the Projects page. Untick "Sample placeholder" once a project describes real work.
+    folder: content/projects
+    create: true
+    extension: yml
+    format: yml
+    slug: "{{slug}}"
+    summary: "{{order}}. {{title}}"
+    sortable_fields: [order, title]
+    preview_path: "projects/{{slug}}"
+    editor: { preview: false }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Short description, name: summary, widget: text }
+      - { label: Sample placeholder, name: isSample, widget: boolean, default: false, hint: "Shows a 'Sample placeholder' badge. Untick for real work." }
+      - { label: Featured on home page, name: featured, widget: boolean, default: false }
+      - { label: Display order, name: order, widget: number, value_type: int, min: 1, default: 1 }
+      - { label: Business context, name: businessContext, widget: text, required: false }
+      - { label: Testing approach, name: testingApproach, widget: text, required: false }
+      - { label: Technologies, name: technologies, widget: list, default: [] }
+      - label: My responsibilities
+        name: responsibilities
+        widget: list
+        field: { label: Responsibility, name: item, widget: text }
+      - label: Key challenges
+        name: challenges
+        widget: list
+        field: { label: Challenge, name: item, widget: text }
+      - label: Outcomes
+        name: outcomes
+        widget: list
+        hint: Only outcomes you can verify.
+        field: { label: Outcome, name: item, widget: text }
+      - label: Screenshots & diagrams
+        name: images
+        widget: list
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image }
+          - { label: Description (alt text), name: alt, widget: string }
+      - { label: GitHub URL, name: githubUrl, widget: string, required: false }
+      - { label: Live project URL, name: liveUrl, widget: string, required: false }
+
+  # ───────────────────────── Blog ─────────────────────────
   - name: blog
     label: Blog articles
     label_singular: Article
@@ -60,19 +288,13 @@ collections:
       - { label: Featured, name: featured, widget: boolean, default: false, hint: Shown at the top of the blog page. }
       - label: Category
         name: category
-        widget: select
-        options:
-          - { label: Software Testing, value: software-testing }
-          - { label: Manual Testing, value: manual-testing }
-          - { label: Automation Testing, value: automation-testing }
-          - { label: API Testing, value: api-testing }
-          - { label: Playwright, value: playwright }
-          - { label: Cypress, value: cypress }
-          - { label: Selenium, value: selenium }
-          - { label: AI in QA, value: ai-in-qa }
-          - { label: Test Strategy, value: test-strategy }
-          - { label: Software Quality, value: software-quality }
-          - { label: QA Career, value: qa-career }
+        widget: relation
+        collection: settings
+        file: categories
+        search_fields: ["blog.*.name"]
+        display_fields: ["blog.*.name"]
+        value_field: "blog.*.id"
+        hint: Add new categories under Site content → Blog & prompt categories.
       - { label: Tags, name: tags, widget: list, default: [], hint: "Lowercase, e.g. playwright, api testing" }
       - { label: Cover image, name: coverImage, widget: image, required: false }
       - { label: Cover image description (alt text), name: coverAlt, widget: string, required: false, hint: Describe the image for screen readers. }
@@ -81,6 +303,7 @@ collections:
         widget: markdown
         hint: Use "Heading 2" and "Heading 3" for sections. Three or more headings create a table of contents.
 
+  # ───────────────────────── Prompts ─────────────────────────
   - name: prompts
     label: QA prompts
     label_singular: Prompt
@@ -98,18 +321,13 @@ collections:
       - { label: Short description, name: description, widget: text }
       - label: Category
         name: category
-        widget: select
-        options:
-          - { label: Test Case Generation, value: test-case-generation }
-          - { label: Manual Testing, value: manual-testing }
-          - { label: API Testing, value: api-testing }
-          - { label: Automation Testing, value: automation-testing }
-          - { label: Playwright, value: playwright }
-          - { label: Cypress, value: cypress }
-          - { label: Bug Analysis, value: bug-analysis }
-          - { label: Test Data Generation, value: test-data-generation }
-          - { label: Test Documentation, value: test-documentation }
-          - { label: AI in QA, value: ai-in-qa }
+        widget: relation
+        collection: settings
+        file: categories
+        search_fields: ["prompts.*.name"]
+        display_fields: ["prompts.*.name"]
+        value_field: "prompts.*.id"
+        hint: Add new categories under Site content → Blog & prompt categories.
       - label: Status
         name: status
         widget: select

@@ -1,0 +1,60 @@
+categories:
+  - name: Software Testing
+    description: Core testing practice across web and mobile.
+    skills:
+      - Manual Testing
+      - Functional Testing
+      - Regression Testing
+      - Exploratory Testing
+      - Smoke Testing
+      - User Acceptance Testing
+      - Web Application Testing
+      - Mobile Application Testing
+      - Desktop Application Testing
+      - Game Testing
+  - name: Automation
+    description: Frameworks and languages for automated testing.
+    skills:
+      - Playwright
+      - Cypress
+      - Selenium
+      - TypeScript
+      - JavaScript
+      - Page Object Model
+  - name: API Testing
+    description: Validating services beyond the UI.
+    skills:
+      - Postman
+      - Swagger
+      - API Validation
+      - Positive & Negative Testing
+  - name: Performance Testing
+    description: Making sure the product stays fast and stable under load.
+    skills:
+      - Performance Testing
+      - JMeter
+      - Locust
+      - Load Testing
+      - Stress Testing
+      - Page Speed Verification
+      - Performance Reporting
+  - name: CI/CD & DevOps
+    description: Getting tests into the delivery pipeline.
+    skills:
+      - GitHub Actions
+      - Azure DevOps
+      - Test Reporting
+  - name: Tools & Collaboration
+    description: How work is tracked, versioned and shared.
+    skills:
+      - Jira
+      - Azure Boards
+      - TestRail
+      - Git / GitHub
+  - name: Emerging Areas
+    description: Where QA is heading next.
+    skills:
+      - AI in Software Testing
+      - AI-assisted Test Case Generation
+      - QA Productivity
+      - Automation Strategy

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const SITE = 'Jay Rathod';
 const DEFAULT_DESCRIPTION =
-  'Jay Rathod — QA professional with 6 years of experience across manual, web, mobile, API and automation testing.';
+  'Jay Rathod — QA engineer with hands-on experience across manual, web, mobile, API and automation testing.';
 
 function setMeta(attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);

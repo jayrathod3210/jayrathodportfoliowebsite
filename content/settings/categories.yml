@@ -1,0 +1,55 @@
+blog:
+  - name: Software Testing
+    id: software-testing
+    description: Fundamentals and practice of testing software.
+  - name: Manual Testing
+    id: manual-testing
+    description: Exploratory, functional and human-driven testing.
+  - name: Automation Testing
+    id: automation-testing
+    description: Building and maintaining automated test suites.
+  - name: API Testing
+    id: api-testing
+    description: Testing services, contracts and integrations.
+  - name: Playwright
+    id: playwright
+    description: Playwright tips, patterns and experiences.
+  - name: Cypress
+    id: cypress
+    description: Cypress tips, patterns and experiences.
+  - name: Selenium
+    id: selenium
+    description: Selenium tips, patterns and experiences.
+  - name: AI in QA
+    id: ai-in-qa
+    description: How AI is changing quality engineering.
+  - name: Test Strategy
+    id: test-strategy
+    description: Planning what to test, and why.
+  - name: Software Quality
+    id: software-quality
+    description: Quality beyond testing.
+  - name: QA Career
+    id: qa-career
+    description: Growing a career in software testing.
+prompts:
+  - name: Test Case Generation
+    id: test-case-generation
+  - name: Manual Testing
+    id: manual-testing
+  - name: API Testing
+    id: api-testing
+  - name: Automation Testing
+    id: automation-testing
+  - name: Playwright
+    id: playwright
+  - name: Cypress
+    id: cypress
+  - name: Bug Analysis
+    id: bug-analysis
+  - name: Test Data Generation
+    id: test-data-generation
+  - name: Test Documentation
+    id: test-documentation
+  - name: AI in QA
+    id: ai-in-qa

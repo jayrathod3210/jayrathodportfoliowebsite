@@ -1,0 +1,18 @@
+name: QA UNPACKED
+tagline: Explore. Learn. Build.
+description: "A knowledge-sharing initiative about practical software quality: testing concepts, automation, AI in QA, honest industry opinions, and conversations with the QA community."
+focusAreas:
+  - Practical QA knowledge
+  - Testing concepts
+  - Software quality discussions
+  - Automation
+  - AI in QA
+  - Industry opinions
+  - Community engagement
+socials:
+  - platform: linkedin
+    label: LinkedIn
+    url: ""
+  - platform: instagram
+    label: Instagram
+    url: ""

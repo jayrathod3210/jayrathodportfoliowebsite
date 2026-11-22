@@ -6,19 +6,20 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'danger';
 type Size = 'sm' | 'md' | 'lg';
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50 select-none';
+  'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 select-none active:scale-[0.98]';
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-accent text-white hover:bg-accent-strong active:bg-accent-strong shadow-sm shadow-accent/20',
-  secondary: 'border border-line-strong bg-navy-850 text-white hover:border-accent/60 hover:bg-navy-800',
-  ghost: 'text-slate-300 hover:bg-navy-800 hover:text-white',
+  primary:
+    'bg-brand-gradient btn-shine text-white shadow-[0_10px_40px_-10px_rgb(34_211_238/0.55)] hover:shadow-[0_14px_50px_-8px_rgb(34_211_238/0.7)]',
+  secondary: 'border border-white/10 bg-white/[0.04] text-white backdrop-blur hover:border-white/20 hover:bg-white/[0.08]',
+  ghost: 'text-slate-300 hover:bg-white/5 hover:text-white',
   danger: 'border border-red-500/40 bg-red-500/10 text-red-300 hover:bg-red-500/20',
 };
 
 const sizes: Record<Size, string> = {
-  sm: 'h-8 px-3 text-sm',
-  md: 'h-10 px-4 text-sm',
-  lg: 'h-12 px-6 text-base',
+  sm: 'h-8 px-3.5 text-sm',
+  md: 'h-10 px-5 text-sm',
+  lg: 'h-12 px-7 text-[15px]',
 };
 
 export function buttonClass(variant: Variant = 'primary', size: Size = 'md', className?: string) {

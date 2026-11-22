@@ -81,7 +81,7 @@ export function ArticlePage() {
         </div>
       )}
       <header className="border-b border-line">
-        <Container className="max-w-4xl py-12 sm:py-16">
+        <Container className="max-w-4xl pt-32 pb-14 sm:pt-40 sm:pb-16">
           <Link to="/blog" className="inline-flex items-center gap-1 text-sm text-muted hover:text-white">
             <ArrowLeft className="size-4" aria-hidden /> All articles
           </Link>
@@ -131,7 +131,7 @@ export function ArticlePage() {
           </div>
         </div>
         {toc.length >= 3 && (
-          <nav aria-label="Table of contents" className="hidden lg:sticky lg:top-24 lg:block lg:self-start">
+          <nav aria-label="Table of contents" className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
             <p className="text-xs font-semibold tracking-wider text-subtle uppercase">On this page</p>
             <ul className="mt-3 space-y-2 border-l border-line text-sm">
               {toc.map((item) => (

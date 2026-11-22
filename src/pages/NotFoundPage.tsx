@@ -5,7 +5,7 @@ import { LinkButton } from '../components/ui/Button';
 export function NotFoundPage() {
   useSeo('Page not found', 'The page you were looking for does not exist.', { noindex: true });
   return (
-    <Container className="flex flex-col items-center py-28 text-center">
+    <Container className="flex min-h-[70vh] flex-col items-center justify-center pt-36 pb-20 text-center">
       <p className="font-mono text-sm text-accent-soft">404 · Test failed</p>
       <h1 className="mt-4 text-3xl font-bold sm:text-4xl">Expected a page. Found nothing.</h1>
       <p className="mt-4 max-w-md text-muted">The page you're looking for doesn't exist or may have moved.</p>

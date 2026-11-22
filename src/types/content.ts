@@ -8,6 +8,7 @@ export type SocialPlatform =
   | 'x'
   | 'medium'
   | 'website'
+  | 'whatsapp'
   | 'other';
 
 export interface SocialLink {
@@ -32,6 +33,13 @@ export interface QaUnpackedBrand {
   socials: SocialLink[];
 }
 
+export interface Stat {
+  id: string;
+  /** Display text, e.g. "50+", "1000+", "98%". A leading number animates. */
+  value: string;
+  label: string;
+}
+
 export interface Profile {
   name: string;
   positioning: string;
@@ -45,11 +53,20 @@ export interface Profile {
   interests: string[];
   goals: string[];
   avatarUrl: string | null;
+  /** YYYY-MM. Years of experience are calculated from this at page load. */
+  careerStart: string;
   location: string;
   email: string;
-  phone: string;
+  /** Shown publicly as a WhatsApp chat link. */
+  whatsapp: string;
   resumeUrl: string;
   socials: SocialLink[];
+  /** Headline numbers shown under the home page hero. */
+  stats: Stat[];
+  /** Platforms listed in the home page 'Platforms I test' card. */
+  platforms: string[];
+  /** Tools shown in the scrolling strip on the home page. */
+  tools: string[];
   qaUnpacked: QaUnpackedBrand;
 }
 

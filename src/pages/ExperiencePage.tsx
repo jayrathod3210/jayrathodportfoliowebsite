@@ -10,17 +10,18 @@ import { LinkButton } from '../components/ui/Button';
 export function ExperiencePage() {
   const data = useSnapshot();
   const items = sortedExperiences(data);
-  useSeo('Experience', `${data.profile.yearsOfExperience} years of software testing experience across manual, automation and API testing.`);
+  useSeo('Experience', `${data.profile.yearsOfExperience}+ years of software testing experience across manual, automation and API testing.`);
 
   return (
     <>
       <PageHeader
         eyebrow="Experience"
-        title={`${data.profile.yearsOfExperience} years in software testing`}
+        title={`${data.profile.yearsOfExperience}+ years in software testing`}
+        highlight={['software', 'testing']}
         description="Manual testing foundations, automation with Cypress and Playwright, and growing ownership of QA strategy and delivery."
       />
-      <Container className="py-16">
-        <div className="max-w-3xl">
+      <Container className="py-20">
+        <div className="max-w-4xl">
           {items.length ? (
             <ExperienceTimeline items={items} />
           ) : (

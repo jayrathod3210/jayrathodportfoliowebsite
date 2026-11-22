@@ -1,0 +1,20 @@
+role: QA Lead
+company: Citrusbug
+startDate: 2025-12
+endDate: ""
+location: ""
+summary: End-to-end QA ownership across concurrent client projects, leading a team of QA engineers.
+responsibilities:
+  - Own end-to-end QA delivery across 10–15 concurrent client projects, from requirement intake through release sign-off.
+  - "Act as primary QA point of contact for clients: leading kickoff calls, aligning on test strategy, and maintaining transparent status visibility."
+  - "Lead and manage a team of 5+ QA engineers: assigning work, reviewing test cases, mentoring, and monitoring daily progress."
+  - "Drive hiring for the QA function: technical interviews, onboarding, and hands-on training for new team members."
+  - Partner with Product Managers and development leads on requirement clarification, sprint planning, and delivery risk resolution.
+contributions:
+  - Championed AI-augmented testing practices across the team, including AI-assisted test case generation with LLM tools (Claude, ChatGPT) and AI-driven failure triage.
+technologies:
+  - Playwright
+  - TypeScript
+  - Claude
+  - ChatGPT
+order: 1

@@ -19,9 +19,9 @@ export function slugFromPath(path: string): string {
   return path.split('/').pop()!.replace(/\.md$/, '');
 }
 
-const str = (v: unknown): string => (typeof v === 'string' ? v.trim() : typeof v === 'number' ? String(v) : '');
-const bool = (v: unknown): boolean => v === true || v === 'true';
-const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(str).filter(Boolean) : []);
+export const str = (v: unknown): string => (typeof v === 'string' ? v.trim() : typeof v === 'number' ? String(v) : '');
+export const bool = (v: unknown): boolean => v === true || v === 'true';
+export const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(str).filter(Boolean) : []);
 const status = (v: unknown): PublishStatus => (str(v) === 'published' ? 'published' : 'draft');
 
 function date(v: unknown): string | null {
