@@ -80,6 +80,8 @@ platforms:
   - Desktop software
   - Games
   - APIs & services
+  - AI & Machine Learning Systems
+  - IoT & Embedded Hardware
 tools:
   - Playwright
   - Cypress
