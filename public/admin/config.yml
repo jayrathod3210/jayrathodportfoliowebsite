@@ -11,7 +11,7 @@ backend:
 # then open http://localhost:5173/admin/index.html. Ignored on the live site.
 local_backend: true
 
-site_url: https://jayrathodportfoliowebsite.netlify.app
+site_url: https://jayrathodqa.netlify.app
 
 media_folder: public/images/uploads
 public_folder: /images/uploads
