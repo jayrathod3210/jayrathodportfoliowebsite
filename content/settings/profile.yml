@@ -39,17 +39,15 @@ journey:
     description: Primarily web application testing, building Cypress automation, and
       working with Selenium and automation practices.
   - period: Now
-    title: Quality engineering & AI-assisted QA
-    description: Playwright with TypeScript, API testing with Postman and Swagger,
-      test strategy, and AI-powered QA workflows.
+    title: Quality leadership & AI-driven QA
+    description: eading QA teams, planning resources, and shaping quality strategy
+      with management. Hands-on with Playwright, TypeScript, Postman, and
+      Swagger, with an AI layer that speeds up testing and widens coverage.
 interests:
-  - Playwright with TypeScript
-  - Cypress
-  - Selenium
-  - API testing with Postman & Swagger
-  - AI-assisted software testing
   - AI-powered QA workflows
-  - Test strategy & quality engineering
+  - Test strategy and quality engineering at scale
+  - Building QA culture through mentoring and knowledge sharing
+  - Scaling Playwright frameworks for growing teams
 goals:
   - Grow from test execution into quality engineering and test strategy.
   - Build practical, maintainable automation with Playwright and TypeScript.
