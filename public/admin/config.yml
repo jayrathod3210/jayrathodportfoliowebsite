@@ -3,8 +3,7 @@
 
 backend:
   name: github
-  # TODO: replace with your GitHub repository, e.g. jayrathod/portfolio
-  repo: YOUR_GITHUB_USERNAME/YOUR_REPOSITORY
+  repo: jayrathod3210/jayrathodportfoliowebsite
   branch: main
   # Login uses Netlify's free GitHub OAuth provider (https://api.netlify.com). See docs/CMS_SETUP.md.
 
@@ -12,8 +11,7 @@ backend:
 # then open http://localhost:5173/admin/index.html. Ignored on the live site.
 local_backend: true
 
-# TODO: replace with your live URL once deployed (used for "View live" links).
-site_url: https://your-site.netlify.app
+site_url: https://jayrathodportfoliowebsite.netlify.app
 
 media_folder: public/images/uploads
 public_folder: /images/uploads
