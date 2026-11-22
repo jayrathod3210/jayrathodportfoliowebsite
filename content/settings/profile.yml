@@ -1,32 +1,34 @@
 name: Jay Rathod
 positioning: Lead QA Engineer & Automation Professional
-heroTitle: I Turn Testing Into Quality Engineering.
-heroSubtitle: QA professional with {years} years of experience across manual
-  testing, web, mobile, desktop and game applications, automation, performance
-  and API testing. Exploring smarter ways to improve software quality through
-  automation and AI.
+heroTitle: I Don't Just Find Bugs. I Engineer Quality.
+heroSubtitle: "{years} years across web, mobile, desktop and game applications,
+  covering manual, automation, API and performance testing. Now building
+  AI-assisted workflows that make testing faster and smarter."
 careerStart: 2021-04
-shortIntro: I started my career in manual testing and grew into automation and
-  quality engineering. Today I focus on Playwright with TypeScript, API testing,
-  and practical ways AI can make QA teams faster and sharper.
+shortIntro: I lead quality, not just testing. From manual tester to QA leader,
+  I've grown by solving real problems, and today I guide teams, plan resources,
+  train engineers, and work with management to set quality goals and direction.
+  I stay hands-on with Playwright, TypeScript, and API testing, and add an AI
+  layer that speeds up testing and widens coverage, helping teams catch what
+  traditional approaches miss. I share what I learn through blogs so more people
+  can build better software.
 about: >-
-  I began my career as a manual tester, working hands-on with web applications,
-  mobile applications and early API checks. Those first two years taught me the
-  fundamentals that still shape how I work: functional and regression testing,
-  reading requirements closely, and thinking about how real users will actually
-  break a product.
+  I began my career as a manual tester, working hands-on with web and mobile
+  applications and early API checks. Those first two years built the foundation
+  I still rely on: functional and regression testing, reading requirements
+  closely, and thinking like the real users who will eventually break a product.
 
 
-  Over the next two years my focus moved to web application testing and automation. I built automation with **Cypress**, worked with **Selenium**, and learned how a good automation suite changes the speed and confidence of a release.
+  Over the next two years, my focus shifted to web testing and automation. I built test suites with Cypress, worked with Selenium, and saw firsthand how strong automation changes the speed and confidence of every release.
 
 
-  Today I work with **Playwright and TypeScript**, test APIs with **Postman** and **Swagger**, manage work in **Jira**, and explore how **AI-assisted testing** can improve QA productivity: generating test ideas, triaging failures and reviewing coverage.
+  Today I lead quality, not just testing. I guide QA teams, plan resources, train engineers, and work with management to set quality goals and long-term direction. I stay hands-on with Playwright and TypeScript, test APIs with Postman and Swagger, and manage delivery in Jira. On top of that, I add an AI layer that speeds up testing and broadens coverage: generating test ideas, triaging failures, and finding gaps that traditional approaches miss.
 
 
-  What connects all of it is a simple belief: testing is not a phase at the end of development. It is a way of understanding the product and protecting the people who use it.
-philosophy: Testing is not just about executing test cases. It is about
-  understanding the product, identifying risks, challenging assumptions, and
-  ensuring software quality.
+  I also write and share what I learn, because better QA starts with people who understand why quality matters. What connects all of it is a simple belief: testing is not a phase at the end of development. It is a way of understanding the product and protecting the people who use it.
+philosophy: Testing isn't just executing test cases. It's understanding the
+  product, uncovering risks, challenging assumptions, and protecting the people
+  who rely on the software
 journey:
   - period: Years 1–2
     title: Manual testing foundations
