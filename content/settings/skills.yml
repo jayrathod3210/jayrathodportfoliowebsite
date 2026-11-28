@@ -21,6 +21,8 @@ categories:
       - TypeScript
       - JavaScript
       - Page Object Model
+      - Framework Architecture
+      - AI Layer Integration
   - name: API Testing
     description: Validating services beyond the UI.
     skills:
@@ -28,6 +30,9 @@ categories:
       - Swagger
       - API Validation
       - Positive & Negative Testing
+      - Request Parameterization
+      - Schema Validation
+      - Authentication & Authorization Testing
   - name: Performance Testing
     description: Making sure the product stays fast and stable under load.
     skills:
@@ -44,6 +49,9 @@ categories:
       - GitHub Actions
       - Azure DevOps
       - Test Reporting
+      - Pipeline Time Optimization
+      - Branch-based Triggers
+      - Scheduled Pipeline Runs
   - name: Tools & Collaboration
     description: How work is tracked, versioned and shared.
     skills:
@@ -51,6 +59,8 @@ categories:
       - Azure Boards
       - TestRail
       - Git / GitHub
+      - Slack
+      - Confluence
   - name: Emerging Areas
     description: Where QA is heading next.
     skills:
@@ -58,3 +68,12 @@ categories:
       - AI-assisted Test Case Generation
       - QA Productivity
       - Automation Strategy
+  - name: Leadership
+    description: Leading QA beyond individual test execution.
+    skills:
+      - Team Mentoring
+      - Test Strategy Planning
+      - Stakeholder Communication
+      - Code & Test Review
+      - Cross-functional Collaboration
+      - Release Sign-off

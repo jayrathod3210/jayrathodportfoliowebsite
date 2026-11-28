@@ -9,7 +9,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const instance = new Lenis({ duration: 1.15, smoothWheel: true, anchors: { offset: -96 } });
+    const instance = new Lenis({ duration: 0.8, smoothWheel: true, anchors: { offset: -96 } });
     let frame = requestAnimationFrame(function loop(time) {
       instance.raf(time);
       frame = requestAnimationFrame(loop);

@@ -3,12 +3,14 @@ import { animate, motion, useInView, useReducedMotion, useScroll, useSpring } fr
 
 /** Thin gradient bar at the very top showing how far down the page you are. */
 export function ScrollProgress() {
+  // Tracks Lenis's already-smoothed scroll value directly: an extra spring on top of
+  // that would double-smooth the motion, making the bar (and the page) feel laggy,
+  // especially on a direction reversal.
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
   return (
     <motion.div
       aria-hidden
-      style={{ scaleX }}
+      style={{ scaleX: scrollYProgress }}
       className="bg-brand-gradient fixed inset-x-0 top-0 z-[70] h-[2px] origin-left"
     />
   );
