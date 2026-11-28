@@ -12,7 +12,6 @@ export const NAV_ITEMS = [
   { to: '/experience', label: 'Experience' },
   { to: '/skills', label: 'Skills' },
   { to: '/projects', label: 'Projects' },
-  { to: '/blog', label: 'Blog' },
   { to: '/prompts', label: 'QA Prompt Library' },
   { to: '/contact', label: 'Contact' },
 ];

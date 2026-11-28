@@ -17,8 +17,6 @@ const load = {
   skills: () => import('./pages/SkillsPage'),
   projects: () => import('./pages/ProjectsPage'),
   projectDetail: () => import('./pages/ProjectDetailPage'),
-  blog: () => import('./pages/BlogPage'),
-  article: () => import('./pages/ArticlePage'),
   prompts: () => import('./pages/PromptsPage'),
   promptDetail: () => import('./pages/PromptDetailPage'),
   qaUnpacked: () => import('./pages/QaUnpackedPage'),
@@ -31,7 +29,6 @@ const loadersForSection: Record<string, (() => Promise<unknown>)[]> = {
   experience: [load.experience],
   skills: [load.skills],
   projects: [load.projects, load.projectDetail],
-  blog: [load.blog, load.article],
   prompts: [load.prompts, load.promptDetail],
   'qa-unpacked': [load.qaUnpacked],
   contact: [load.contact],
@@ -42,8 +39,6 @@ const ExperiencePage = lazy(() => load.experience().then((m) => ({ default: m.Ex
 const SkillsPage = lazy(() => load.skills().then((m) => ({ default: m.SkillsPage })));
 const ProjectsPage = lazy(() => load.projects().then((m) => ({ default: m.ProjectsPage })));
 const ProjectDetailPage = lazy(() => load.projectDetail().then((m) => ({ default: m.ProjectDetailPage })));
-const BlogPage = lazy(() => load.blog().then((m) => ({ default: m.BlogPage })));
-const ArticlePage = lazy(() => load.article().then((m) => ({ default: m.ArticlePage })));
 const PromptsPage = lazy(() => load.prompts().then((m) => ({ default: m.PromptsPage })));
 const PromptDetailPage = lazy(() => load.promptDetail().then((m) => ({ default: m.PromptDetailPage })));
 const QaUnpackedPage = lazy(() => load.qaUnpacked().then((m) => ({ default: m.QaUnpackedPage })));
@@ -97,8 +92,6 @@ export default function App() {
           <Route path="skills" element={<SkillsPage />} />
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="projects/:slug" element={<ProjectDetailPage />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/:slug" element={<ArticlePage />} />
           <Route path="prompts" element={<PromptsPage />} />
           <Route path="prompts/:slug" element={<PromptDetailPage />} />
           <Route path="qa-unpacked" element={<QaUnpackedPage />} />

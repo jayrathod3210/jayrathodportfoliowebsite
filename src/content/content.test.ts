@@ -57,7 +57,7 @@ describe('content files', () => {
     expect(content.skills.length).toBeGreaterThan(20);
     expect(content.projects).toHaveLength(5);
     expect(content.articles).toHaveLength(5);
-    expect(content.prompts).toHaveLength(7);
+    expect(content.prompts).toHaveLength(12);
   });
 
   it('gives every article and prompt a category that exists', () => {

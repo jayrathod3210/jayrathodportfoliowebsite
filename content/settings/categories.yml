@@ -54,4 +54,8 @@ prompts:
   - name: AI in QA
     id: ai-in-qa
   - name: Requirement Analysis
-    id: requirement-analysis1
+    id: requirement-analysis
+  - name: UI/UX Testing
+    id: ui-ux-testing
+  - name: CI/CD & DevOps
+    id: ci-cd-devops

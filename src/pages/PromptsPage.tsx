@@ -26,6 +26,7 @@ export function PromptsPage() {
   const tags = allTags(prompts);
   const counts = new Map<string, number>();
   prompts.forEach((p) => p.categoryId && counts.set(p.categoryId, (counts.get(p.categoryId) ?? 0) + 1));
+  const usedCategories = data.promptCategories.filter((c) => counts.get(c.id));
   const categoryName = (id: string | null) => data.promptCategories.find((c) => c.id === id)?.name;
   const filtering = Boolean(query || category || tag);
 
@@ -59,7 +60,7 @@ export function PromptsPage() {
                 className="h-11"
               >
                 <option value="">All categories ({prompts.length})</option>
-                {data.promptCategories.map((c) => (
+                {usedCategories.map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.name} ({counts.get(c.id) ?? 0})
                   </option>

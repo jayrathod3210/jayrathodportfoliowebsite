@@ -5,9 +5,8 @@ category: api-testing
 status: published
 featured: true
 tags:
-  - api
+  - api testing
   - negative testing
-  - swagger
   - postman
 usageNotes: Works best with a Swagger/OpenAPI snippet. Remove secrets and real tokens before pasting.
 ---

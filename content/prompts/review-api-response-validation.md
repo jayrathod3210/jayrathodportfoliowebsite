@@ -5,10 +5,9 @@ category: api-testing
 status: published
 featured: false
 tags:
-  - api
+  - api testing
   - assertions
   - postman
-  - code review
 usageNotes: Paste test code or a Postman test script along with a sample response. Mask any personal or production data.
 ---
 Act as a senior API tester. Review how this API response is being validated.

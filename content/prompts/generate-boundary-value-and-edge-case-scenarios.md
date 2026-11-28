@@ -5,7 +5,6 @@ category: manual-testing
 status: published
 featured: false
 tags:
-  - boundary value analysis
   - edge cases
   - test design
 usageNotes: Give the exact validation rules if you know them; otherwise ask the model to list the rules it assumes.

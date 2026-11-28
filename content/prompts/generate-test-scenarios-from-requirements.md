@@ -5,9 +5,8 @@ category: test-case-generation
 status: published
 featured: true
 tags:
-  - requirements
+  - requirement analysis
   - test design
-  - scenarios
 usageNotes: "Paste the full requirement including acceptance criteria. Review every scenario: the model cannot know undocumented business rules."
 ---
 You are a senior QA engineer. Analyse the requirement below and produce test scenarios.

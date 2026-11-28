@@ -7,7 +7,6 @@ featured: true
 tags:
   - automation strategy
   - test planning
-  - roi
 usageNotes: Paste a manageable batch (10–30 cases). Include run frequency if you know it.
 ---
 You are an automation strategist. Evaluate the manual test cases below and decide which should be automated.

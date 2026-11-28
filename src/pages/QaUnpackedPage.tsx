@@ -61,13 +61,10 @@ export function QaUnpackedPage() {
         <Reveal className="mt-20">
           <div className="border-spin flex flex-col gap-6 rounded-[2rem] bg-white/[0.02] p-8 [--spin-color:#f5a524] sm:flex-row sm:items-center sm:justify-between sm:p-10">
             <p className="max-w-xl text-lg text-slate-300">
-              Want to start with something practical? The QA Prompt Library and blog share the same ideas in reusable form.
+              Want to start with something practical? The QA Prompt Library shares the same ideas in reusable form.
             </p>
             <div className="flex flex-wrap gap-3">
               <LinkButton to="/prompts">QA Prompt Library</LinkButton>
-              <LinkButton to="/blog" variant="secondary">
-                Blog
-              </LinkButton>
             </div>
           </div>
         </Reveal>

@@ -5,10 +5,10 @@ import { ArrowRight, ArrowUpRight, Gamepad2, Globe, Layers, Mail, Monitor, Plug,
 import { useSnapshot } from '../content';
 import { whatsappLink } from '../content/settings';
 import { useSeo } from '../hooks/useSeo';
-import { draftArticles, publishedArticles, publishedProjects, publishedPrompts, skillsByCategory } from '../lib/selectors';
+import { publishedProjects, publishedPrompts, skillsByCategory } from '../lib/selectors';
 import { LinkButton } from '../components/ui/Button';
 import { Avatar, Card, Container, EmptyState, SectionHeading } from '../components/ui/primitives';
-import { ArticleCard, ProjectCard, PromptCard, UpcomingArticle } from '../components/cards';
+import { ProjectCard, PromptCard } from '../components/cards';
 import { QaUnpackedTeaser } from '../components/QaUnpacked';
 import { SkillsTabs } from '../components/SkillsTabs';
 import { JourneyTimeline } from '../components/JourneyTimeline';
@@ -265,11 +265,8 @@ export function HomePage() {
   const { profile } = data;
   useSeo('', profile.heroSubtitle);
 
-  const categoryName = (id: string | null) => data.blogCategories.find((c) => c.id === id)?.name;
   const promptCategory = (id: string | null) => data.promptCategories.find((c) => c.id === id)?.name;
   const projects = publishedProjects(data).filter((p) => p.featured).slice(0, 3);
-  const articles = publishedArticles(data).slice(0, 3);
-  const upcoming = draftArticles(data).slice(0, 3);
   const prompts = publishedPrompts(data)
     .sort((a, b) => Number(b.featured) - Number(a.featured))
     .slice(0, 3);
@@ -370,31 +367,6 @@ export function HomePage() {
             </Stagger>
           ) : (
             <EmptyState icon={<Sparkles className="size-8" />} title="Prompts coming soon" />
-          )}
-        </Container>
-      </section>
-
-      {/* Articles */}
-      <section className="py-24 sm:py-32">
-        <Container>
-          <SectionHeading
-            eyebrow="Blog"
-            title={articles.length ? 'Latest articles' : 'Articles in the works'}
-            description={articles.length ? undefined : 'Practical writing on testing, automation and AI in QA, coming soon.'}
-            action={<SectionLink to="/blog">Visit the blog</SectionLink>}
-          />
-          {articles.length ? (
-            <Stagger className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {articles.map((a) => (
-                <ArticleCard key={a.id} article={a} categoryName={categoryName(a.categoryId)} />
-              ))}
-            </Stagger>
-          ) : (
-            <Stagger className="grid gap-5 md:grid-cols-3">
-              {upcoming.map((a) => (
-                <UpcomingArticle key={a.id} article={a} categoryName={categoryName(a.categoryId)} />
-              ))}
-            </Stagger>
           )}
         </Container>
       </section>

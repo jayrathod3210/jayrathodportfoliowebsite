@@ -7,7 +7,6 @@ featured: true
 tags:
   - playwright
   - typescript
-  - page object model
 usageNotes: "Provide real selectors or a DOM snippet if possible. Always run and review the generated code: never commit it unread."
 ---
 You are an expert in Playwright with TypeScript. Write an automated test for the scenario below.
