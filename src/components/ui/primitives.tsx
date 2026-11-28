@@ -165,7 +165,18 @@ export function Spinner({ label = 'Loading…', className }: { label?: string; c
   );
 }
 
-export function Avatar({ src, name, className }: { src: string | null; name: string; className?: string }) {
+export function Avatar({
+  src,
+  name,
+  className,
+  priority = false,
+}: {
+  src: string | null;
+  name: string;
+  className?: string;
+  /** Set for an above-the-fold instance (e.g. the hero) so it isn't needlessly delayed by lazy-loading. */
+  priority?: boolean;
+}) {
   const initials = name
     .split(/\s+/)
     .map((p) => p[0])
@@ -176,7 +187,13 @@ export function Avatar({ src, name, className }: { src: string | null; name: str
   return (
     <div className={cn('relative shrink-0 rounded-full bg-gradient-to-br from-accent via-cyan to-violet p-[2px]', className)}>
       {src ? (
-        <img src={src} alt={`Portrait of ${name}`} className="size-full rounded-full object-cover" loading="lazy" />
+        <img
+          src={src}
+          alt={`Portrait of ${name}`}
+          className="size-full rounded-full object-cover"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : undefined}
+        />
       ) : (
         <div
           role="img"

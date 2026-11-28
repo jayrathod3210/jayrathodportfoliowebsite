@@ -56,17 +56,7 @@ function PreloadPages() {
     };
     const events = ['pointerover', 'touchstart', 'focusin'] as const;
     events.forEach((t) => document.addEventListener(t, onIntent, { passive: true }));
-
-    // Fetch everything once the first page has rendered and the browser is idle.
-    const all = () => run(Object.values(load));
-    const idle = window.requestIdleCallback
-      ? window.requestIdleCallback(all, { timeout: 2000 })
-      : window.setTimeout(all, 1200);
-    return () => {
-      events.forEach((t) => document.removeEventListener(t, onIntent));
-      if (window.cancelIdleCallback) window.cancelIdleCallback(idle);
-      else window.clearTimeout(idle);
-    };
+    return () => events.forEach((t) => document.removeEventListener(t, onIntent));
   }, []);
   return null;
 }
