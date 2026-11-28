@@ -5,13 +5,15 @@ backend:
   name: github
   repo: jayrathod3210/jayrathodportfoliowebsite
   branch: main
-  # Login uses Netlify's free GitHub OAuth provider (https://api.netlify.com). See docs/CMS_SETUP.md.
+  base_url: https://jayrathodqa.vercel.app
+  auth_endpoint: api/auth
+  # Login uses our own GitHub OAuth provider hosted as Vercel functions (api/auth.js, api/callback.js). See docs/CMS_SETUP.md.
 
 # Edit locally without GitHub: run `npx decap-server` next to `npm run dev`,
 # then open http://localhost:5173/admin/index.html. Ignored on the live site.
 local_backend: true
 
-site_url: https://jayrathodqa.netlify.app
+site_url: https://jayrathodqa.vercel.app
 
 media_folder: public/images/uploads
 public_folder: /images/uploads

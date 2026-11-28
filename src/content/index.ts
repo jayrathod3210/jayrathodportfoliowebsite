@@ -3,7 +3,7 @@ import { articleFromFile, promptFromFile } from './markdown';
 import { categoriesFrom, experienceFrom, parseYaml, profileFrom, projectFrom, qaUnpackedFrom, skillsFrom } from './settings';
 
 // Everything under /content is written by Decap CMS and bundled at build time.
-// Saving in the CMS commits a file, Netlify rebuilds, and the site updates.
+// Saving in the CMS commits a file, Vercel rebuilds, and the site updates.
 const raw = (files: Record<string, string>) => files;
 const settingsFiles = raw(import.meta.glob<string>('/content/settings/*.yml', { query: '?raw', import: 'default', eager: true }));
 const experienceFiles = raw(import.meta.glob<string>('/content/experience/*.yml', { query: '?raw', import: 'default', eager: true }));

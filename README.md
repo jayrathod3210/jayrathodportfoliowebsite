@@ -53,7 +53,8 @@ src/
   components/            UI primitives (ui/), layout, cards, Markdown renderer
   pages/                 One file per route
   lib/                   Pure helpers: selectors, validation, utils (unit tested)
-netlify.toml             Build settings + SPA routing for Netlify
+vercel.json              Build settings + SPA routing for Vercel
+api/                     Self-hosted Decap CMS OAuth provider (Vercel functions)
 legacy-static/           First static draft, kept for reference only
 ```
 

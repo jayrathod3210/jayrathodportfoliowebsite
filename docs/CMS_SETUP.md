@@ -1,8 +1,8 @@
 # Going live and setting up the content editor (Decap CMS)
 
-This takes about 20 minutes, once. Everything here is free: GitHub, Netlify's free plan, and Decap CMS.
+This takes about 20 minutes, once. Everything here is free: GitHub, Vercel's free plan, and Decap CMS.
 
-When you're done, you'll write blog posts and prompts at **`https://your-site/admin/`**, logged in with GitHub. Each time you save, Decap commits a Markdown file to your repository and Netlify rebuilds the site. Changes are live in about a minute.
+When you're done, you'll write blog posts and prompts at **`https://your-site/admin/`**, logged in with GitHub. Each time you save, Decap commits a Markdown file to your repository and Vercel rebuilds the site. Changes are live in about a minute.
 
 ---
 
@@ -20,26 +20,28 @@ When you're done, you'll write blog posts and prompts at **`https://your-site/ad
    git push -u origin main
    ```
 
-## Step 2: Deploy on Netlify
+## Step 2: Deploy on Vercel
 
-1. Sign in at <https://app.netlify.com> with your GitHub account.
-2. Choose **Add new site → Import an existing project → GitHub**, and pick your repository.
-3. Netlify reads `netlify.toml` automatically (build command `npm run build`, publish folder `dist`). Click **Deploy**.
-4. Note your site URL, e.g. `https://jay-rathod.netlify.app`. You can rename it under **Site configuration → Change site name**, or add your own domain later.
+1. Sign in at <https://vercel.com> with your GitHub account.
+2. Choose **Add New → Project**, and pick your repository.
+3. Vercel reads `vercel.json` automatically (build command `npm run build`, output folder `dist`). Framework preset should auto-detect as Vite. Click **Deploy**.
+4. Note your site URL, e.g. `https://jayrathodqa.vercel.app`. You can add your own domain later under **Project → Settings → Domains**.
 
 ## Step 3: Let the editor log in with GitHub
 
-Decap needs a GitHub "OAuth app" so it can save files to your repository on your behalf.
+Decap needs a GitHub "OAuth app" so it can save files to your repository on your behalf. Instead of a hosted provider, this project ships its own tiny OAuth provider as two Vercel serverless functions: [`api/auth.js`](../api/auth.js) and [`api/callback.js`](../api/callback.js).
 
 1. On GitHub, go to **Settings → Developer settings → OAuth Apps → New OAuth App**:
    - **Application name:** `Portfolio CMS`
-   - **Homepage URL:** your Netlify URL from step 2
-   - **Authorization callback URL:** `https://api.netlify.com/auth/done`
+   - **Homepage URL:** your Vercel URL from step 2
+   - **Authorization callback URL:** `https://your-site.vercel.app/api/callback`
 2. Click **Register application**, then **Generate a new client secret**. Keep this page open.
-3. In Netlify, open your site → **Site configuration → Access & security → OAuth → Install provider**.
-   Choose **GitHub** and paste the **Client ID** and **Client secret**.
+3. In Vercel, open your project → **Settings → Environment Variables**, and add:
+   - `OAUTH_CLIENT_ID` = the Client ID from the GitHub OAuth App
+   - `OAUTH_CLIENT_SECRET` = the Client secret you just generated
+4. Redeploy (**Deployments → ⋯ → Redeploy**) so the functions pick up the new variables.
 
-> The client secret is stored only in Netlify. It never goes into your code or repository.
+> The client secret is stored only in Vercel's environment variables. It never goes into your code or repository.
 
 ## Step 4: Point the editor at your repository
 
@@ -50,11 +52,13 @@ backend:
   name: github
   repo: YOUR_USERNAME/portfolio   # ← your repository
   branch: main
+  base_url: https://your-site.vercel.app   # ← your site URL
+  auth_endpoint: api/auth
 
-site_url: https://jay-rathod.netlify.app   # ← your site URL
+site_url: https://your-site.vercel.app   # ← your site URL
 ```
 
-Commit and push. Netlify redeploys automatically.
+Commit and push. Vercel redeploys automatically.
 
 ## Step 5: Log in
 
@@ -119,7 +123,7 @@ Open <http://localhost:5173/admin/index.html>. Changes are written directly into
 | Problem | Fix |
 |---|---|
 | "Failed to load config.yml" | Check the YAML indentation in `public/admin/config.yml`. |
-| Login popup closes and nothing happens | Check the OAuth app callback URL is exactly `https://api.netlify.com/auth/done`, and that the GitHub provider is installed in Netlify. |
+| Login popup closes and nothing happens | Check the OAuth app callback URL is exactly `https://your-site.vercel.app/api/callback`, and that `OAUTH_CLIENT_ID`/`OAUTH_CLIENT_SECRET` are set in Vercel's environment variables (then redeploy). |
 | "Not Found" / no permission after login | The `repo:` value in `config.yml` is wrong, or your GitHub account lacks write access to it. |
-| Article saved but not on the site | Its Status is still **Draft**, or the Netlify build failed (check **Deploys** in Netlify). |
+| Article saved but not on the site | Its Status is still **Draft**, or the Vercel build failed (check **Deployments** in Vercel). |
 | LinkedIn link asks visitors to log in | That's a LinkedIn setting, not the website: on LinkedIn go to **Me → View profile → Edit public profile & URL** and set **Your profile's public visibility** to **On**, with the sections you want visible switched on. |
